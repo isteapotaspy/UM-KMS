@@ -9,13 +9,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.StudentLayoutController">
     <stylesheets>
         <URL value="@studentlayout.css" />
     </stylesheets>
    <children>
-      <Pane layoutY="7.0" prefHeight="600.0" prefWidth="250.0">
+      <Pane fx:id="sidebar" layoutY="7.0" prefHeight="600.0" prefWidth="250.0">
          <children>
             <ImageView fitHeight="74.0" fitWidth="178.0" layoutX="36.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -24,7 +25,7 @@
             </ImageView>
             <VBox layoutY="142.0" prefHeight="206.0" prefWidth="250.0">
                <children>
-                  <HBox fx:id="dashboardPane" onMouseClicked="#handleDashboardButtonClick" prefHeight="36.0">
+                  <HBox fx:id="dashboardPane" onMouseClicked="#handleDashboardButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="dashboardImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -43,7 +44,7 @@
                      </padding>
                   </HBox>
                   
-                  <HBox fx:id="searchPane" layoutX="34.0" layoutY="46.0" onMouseClicked="#handleSearchButtonClick" prefHeight="36.0">
+                  <HBox fx:id="searchPane" layoutX="34.0" layoutY="46.0" onMouseClicked="#handleSearchButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="searchImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -65,7 +66,7 @@
                      </padding>
                   </HBox>
                   
-                  <HBox fx:id="requestPane" layoutX="34.0" layoutY="10.0" onMouseClicked="#handleRequestButtonClick" prefHeight="36.0">
+                  <HBox fx:id="requestPane" layoutX="34.0" layoutY="10.0" onMouseClicked="#handleRequestButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="requestImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -84,7 +85,7 @@
                      </padding>
                   </HBox>
                   
-                  <HBox fx:id="historyPane" layoutX="34.0" layoutY="82.0" onMouseClicked="#handleHistoryButtonClick" prefHeight="36.0">
+                  <HBox fx:id="historyPane" layoutX="34.0" layoutY="82.0" onMouseClicked="#handleHistoryButtonClick" prefHeight="36.0" prefWidth="217.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="historyImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -96,12 +97,15 @@
                            </HBox.margin></Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="24.0" right="24.0" />
+                        <Insets />
                      </VBox.margin>
+                     <padding>
+                        <Insets left="24.0" right="24.0" />
+                     </padding>
                   </HBox>
                   
 
-                  <HBox fx:id="messagesPane" layoutX="34.0" layoutY="118.0" onMouseClicked="#handleMessagesButtonClick" prefHeight="36.0">
+                  <HBox fx:id="messagesPane" layoutX="34.0" layoutY="118.0" onMouseClicked="#handleMessagesButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="messagesImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -113,11 +117,15 @@
                            </HBox.margin></Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="24.0" right="24.0" />
+                        <Insets />
                      </VBox.margin>
+                     <padding>
+                        <Insets left="24.0" right="24.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
+            
             <VBox layoutX="7.0" layoutY="458.0" prefHeight="142.0" prefWidth="250.0">
                <children>
                   <Label prefHeight="36.0" prefWidth="253.0" text="Profile">
@@ -139,7 +147,55 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="dynamicPane" layoutX="250.0" prefHeight="607.0" prefWidth="752.0" />
+      <Pane fx:id="dynamicPane" layoutX="250.0" layoutY="72.0" prefHeight="520.0" prefWidth="750.0" />
+      <Pane layoutX="250.0" prefHeight="80.0" prefWidth="750.0">
+         <children>
+            <HBox layoutY="-14.0" prefHeight="80.0" prefWidth="750.0">
+               <children>
+                  <VBox prefHeight="68.0" prefWidth="454.0">
+                     <children>
+                        <Label text="Hi, Jane Concerman!">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="239.0" text="Student Dashboard ">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="295.0">
+                     <children>
+                        <Label text="9:45AM" textAlignment="RIGHT">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="25.0" prefWidth="381.0" text="The library is now open." textAlignment="RIGHT">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="24.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="24.0" top="24.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets top="24.0" />
+         </padding>
+      </Pane>
    </children>
    
 </AnchorPane>

@@ -5,3 +5,11 @@
 .mainFxmlClass {
 
 }
+
+#sidebar {
+    -fx-background-color: #ff8d9b;
+}
+
+.sidebarButtons:hover {
+    -fx-background-color: linear-gradient(to right, orange, red);
+}
