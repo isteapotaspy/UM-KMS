@@ -40,7 +40,11 @@ public class StudentLayoutController implements Initializable {
     
     // THE THINGS BELOW SHOULD HANDLE THE UI CHANGE (like design and pane switching)
     public void handleSearchButtonClick() {
+        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/pages/search/search.fxml");
+        dynamicPane.getChildren().setAll(newPage);
     }
+    
+    
     public void handleRequestButtonClick() {
         Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/student/request/request.fxml");
         dynamicPane.getChildren().setAll(newPage);

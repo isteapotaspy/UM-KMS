@@ -126,23 +126,32 @@
                </children>
             </VBox>
             
-            <VBox layoutX="7.0" layoutY="458.0" prefHeight="142.0" prefWidth="250.0">
+            <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="258.0">
                <children>
-                  <Label prefHeight="36.0" prefWidth="253.0" text="Profile">
+                  <HBox prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                     <children>
+                        <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Profile" />
+                     </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
-                  </Label>
-                  <Label prefHeight="36.0" prefWidth="253.0" text="Settings">
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                     <children>
+                        <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Settings" />
+                     </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
-                  </Label>
-                  <Label prefHeight="36.0" prefWidth="253.0" text="Logout">
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                     <children>
+                        <Label prefHeight="36.0" prefWidth="278.0" styleClass="sidebarButtons" text="Logout" />
+                     </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
-                  </Label>
+                  </HBox>
                </children>
             </VBox>
          </children>
