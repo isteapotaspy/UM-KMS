@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+#testMain {
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-border-width: 12;
+    -fx-border-radius: 24;
+    -fx-border-insets: 12;
+}
+
+#testMain:hover {
+    -fx-background-color: linear-gradient(to right, orange, red);
+}
