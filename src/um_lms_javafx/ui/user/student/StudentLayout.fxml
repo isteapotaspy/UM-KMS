@@ -16,7 +16,7 @@
         <URL value="@studentlayout.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="sidebar" layoutY="7.0" prefHeight="600.0" prefWidth="250.0">
+      <Pane fx:id="sidebar" prefHeight="607.0" prefWidth="250.0">
          <children>
             <ImageView fitHeight="74.0" fitWidth="178.0" layoutX="36.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -128,7 +128,7 @@
             
             <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="258.0">
                <children>
-                  <HBox prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                  <HBox fx:id="profileButton" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleProfileButtonClicked">
                      <children>
                         <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Profile" />
                      </children>
@@ -136,7 +136,7 @@
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                  <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleSettingsButtonClicked">
                      <children>
                         <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Settings" />
                      </children>
@@ -144,7 +144,7 @@
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                  <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleLogoutButtonClicked">
                      <children>
                         <Label prefHeight="36.0" prefWidth="278.0" styleClass="sidebarButtons" text="Logout" />
                      </children>
