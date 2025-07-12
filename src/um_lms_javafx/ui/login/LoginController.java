@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
     @FXML
     Button loginButton;
+    @FXML
+    Button adminButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -33,6 +35,15 @@ public class LoginController implements Initializable {
         // Just copy paste this code, there's no need to modify anything here except the path
 
         Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/student/StudentLayout.fxml"));
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    public void adminButtonActionPerformed(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/admin/AdminLayout.fxml"));
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
