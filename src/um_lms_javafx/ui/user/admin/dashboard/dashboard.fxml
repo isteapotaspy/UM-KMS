@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.dashboard.DashboardController">
+    <stylesheets>
+        <URL value="@dashboard.css" />
+    </stylesheets>
+   <children>
+      <Pane fx:id="issuedBooksPane" layoutX="70.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0">
+         <children>
+            <Label alignment="CENTER" layoutX="17.0" layoutY="6.0" prefHeight="38.0" prefWidth="105.0" text="Issued Books" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/admin/book3%2050x50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="70.0" layoutY="43.0" text="100" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="totalBooksPane" layoutX="230.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0">
+         <children>
+            <Label alignment="CENTER" layoutX="17.0" layoutY="7.0" prefHeight="38.0" prefWidth="105.0" text="Total Books" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/admin/newsstand%2050x50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="70.0" layoutY="44.0" text="100" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="totalStudentsPane" layoutX="390.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0">
+         <children>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="38.0" prefWidth="125.0" text="Total Students" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/admin/users%2050x50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="73.0" layoutY="45.0" text="100" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="booksReturnedPane" layoutX="550.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0">
+         <children>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="8.0" prefHeight="38.0" prefWidth="125.0" text="Books Returned" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/admin/book1%2050x50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="73.0" layoutY="45.0" text="100" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="newUsersTable" layoutX="70.0" layoutY="195.0" prefHeight="277.0" prefWidth="306.0">
+        <columns>
+          <TableColumn prefWidth="147.0" text="Name" />
+          <TableColumn prefWidth="56.0" text="ID" />
+            <TableColumn prefWidth="115.0" text="Books Issued" />
+        </columns>
+      </TableView>
+      <TableView fx:id="newBooksTable" layoutX="390.0" layoutY="195.0" prefHeight="277.0" prefWidth="306.0">
+         <columns>
+            <TableColumn prefWidth="143.0" text="Title" />
+            <TableColumn prefWidth="60.0" text="ID" />
+            <TableColumn prefWidth="102.0" text="Date Issued" />
+         </columns>
+      </TableView>
+      <Label layoutX="70.0" layoutY="157.0" prefHeight="38.0" prefWidth="105.0" text="New Users" textAlignment="RIGHT" textFill="#043656">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="390.0" layoutY="157.0" prefHeight="38.0" prefWidth="105.0" text="New Books" textAlignment="RIGHT" textFill="#043565">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
