@@ -12,9 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" 
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
-            fx:controller="um_lms_javafx.ui.user.student.request.RequestController">
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.request.RequestController">
     <stylesheets>
         <URL value="@request.css" />
     </stylesheets>
@@ -36,7 +34,7 @@
                         <Insets left="24.0" right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Hyperlink prefHeight="23.0" prefWidth="413.0" text="Click here to borrow more books from the library.">
+                  <Hyperlink fx:id="borrowBook" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="413.0" text="Click here to borrow more books from the library.">
                      <HBox.margin>
                         <Insets right="24.0" />
                      </HBox.margin>
