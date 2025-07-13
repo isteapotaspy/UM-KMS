@@ -11,10 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Ravin
- */
+
 public class UM_LMS_JavaFX extends Application {
         
     @Override

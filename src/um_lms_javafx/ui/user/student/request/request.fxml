@@ -34,7 +34,7 @@
                         <Insets left="24.0" right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Hyperlink fx:id="borrowBook" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="413.0" text="Click here to borrow more books from the library.">
+                  <Hyperlink fx:id="borrowBook" alignment="BOTTOM_RIGHT" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="547.0" text="FAQs on how to borrow a book in the library.">
                      <HBox.margin>
                         <Insets right="24.0" />
                      </HBox.margin>
@@ -65,7 +65,7 @@
                         <Insets left="24.0" right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Hyperlink prefHeight="23.0" prefWidth="355.0" text="Click here to reserve books from the library.">
+                  <Hyperlink alignment="BASELINE_RIGHT" prefHeight="23.0" prefWidth="550.0" text="Click here to reserve books from the library.">
                      <HBox.margin>
                         <Insets right="24.0" />
                      </HBox.margin>
@@ -87,10 +87,5 @@
             </ScrollPane>
          </children>
       </VBox>
-      <Hyperlink alignment="CENTER_RIGHT" layoutX="417.0" layoutY="483.0" prefHeight="23.0" prefWidth="326.0" text="FAQs on borrowing and reserving in the library.">
-         <padding>
-            <Insets right="12.0" />
-         </padding>
-      </Hyperlink>
    </children>
 </AnchorPane>

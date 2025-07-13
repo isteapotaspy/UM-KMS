@@ -4,10 +4,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,7 +23,19 @@
         <URL value="@dashboard.css" />
     </stylesheets>
    <children>
-      <HBox prefHeight="104.0" prefWidth="750.0" spacing="6.0" AnchorPane.topAnchor="12.0">
+      <GridPane hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="750.0" vgap="8.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="177.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="177.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="177.5" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="177.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="124.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="124.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="96.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="136.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
             <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
                <children>
@@ -26,6 +43,9 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox prefHeight="36.0" prefWidth="140.0">
                      <children>
@@ -41,18 +61,21 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Hyperlink text="Borrow more books" />
+                  <Hyperlink prefHeight="23.0" prefWidth="167.0" text="How do I borrow a book?" />
                </children>
                <padding>
-                  <Insets left="24.0" right="12.0" top="12.0" />
+                  <Insets left="12.0" right="12.0" top="12.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card" GridPane.columnIndex="1">
                <children>
                   <Label text="Reserved books" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox prefHeight="36.0" prefWidth="140.0">
                      <children>
@@ -68,18 +91,21 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Hyperlink text="Request additional books" />
+                  <Hyperlink text="Reserve additional books" />
                </children>
                <padding>
-                  <Insets left="24.0" right="12.0" top="12.0" />
+                  <Insets left="12.0" right="12.0" top="12.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card" GridPane.columnIndex="2">
                <children>
                   <Label text="Return deadline" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox prefHeight="36.0" prefWidth="140.0">
                      <children>
@@ -95,18 +121,21 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Hyperlink text="FAQs about returns" />
+                  <Hyperlink text="How do deadlines work?" />
                </children>
                <padding>
-                  <Insets left="24.0" right="12.0" top="12.0" />
+                  <Insets left="12.0" right="12.0" top="12.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card" GridPane.columnIndex="3">
                <children>
                   <Label text="Unsettled fees" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="6.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox prefHeight="36.0" prefWidth="140.0">
                      <children>
@@ -125,27 +154,110 @@
                   <Hyperlink text="Settle fees through OSA" />
                </children>
                <padding>
-                  <Insets left="24.0" right="12.0" top="12.0" />
+                  <Insets left="12.0" right="12.0" top="12.0" />
                </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="360.0" styleClass="card" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <Label prefHeight="20.0" prefWidth="152.0" text="Announcements" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="announcementText" alignment="TOP_LEFT" prefHeight="201.0" prefWidth="270.0" text="&lt;text about announcement here&gt;" textFill="WHITE" textOverrun="CLIP" />
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="18.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="140.0" prefHeight="200.0" prefWidth="360.0" styleClass="card" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="144.0" text="Recommendations" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="announcementText1" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="270.0" text="Check out interesting books available in the library." textFill="WHITE" textOverrun="CLIP" />
+                  <Pagination maxHeight="-Infinity" maxPageIndicatorCount="12" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="329.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="24.0" right="24.0" />
+                     </padding></Pagination>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="18.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+            <VBox layoutX="386.0" layoutY="140.0" prefHeight="200.0" prefWidth="360.0" styleClass="card" GridPane.columnSpan="4" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="12.0" left="18.0" right="12.0" top="12.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="20.0" prefWidth="52.0" text="Events" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="688.0">
+                     <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                           <children>
+                              <ImageView fitHeight="92.0" fitWidth="92.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../../assets/student/events/christmas_day.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Hyperlink layoutY="46.0" prefHeight="44.0" prefWidth="92.0" text="Christmas Eve" textFill="WHITE" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Hyperlink>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="92.0">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
             </VBox>
          </children>
          <padding>
-            <Insets left="6.0" />
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>
-      </HBox>
-      <Label layoutX="251.0" layoutY="296.0" text="JANE HELPPPPP HUHUHUU I'M RUNNING OUT OF IDEAS BRUH" />
-      <VBox layoutY="116.0" prefHeight="200.0" prefWidth="294.0">
-         <children>
-            <Label prefHeight="29.0" prefWidth="97.0" text="Announcements">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="announcementText" alignment="TOP_LEFT" prefHeight="201.0" prefWidth="270.0" text="&lt;text&gt;" textOverrun="CLIP" />
-         </children>
-         <padding>
-            <Insets left="24.0" top="24.0" />
-         </padding>
-      </VBox>
+      </GridPane>
    </children>
 </AnchorPane>
