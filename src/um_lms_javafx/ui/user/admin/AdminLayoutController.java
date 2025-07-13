@@ -36,7 +36,7 @@ public class AdminLayoutController implements Initializable {
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleTotalBooksButtonClick() {
-        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/admin/totalbooks/totalBooks.fxml");
+        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/pages/search/search.fxml");
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleManageBooksButtonClick() {
@@ -44,7 +44,7 @@ public class AdminLayoutController implements Initializable {
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleIssuedBooksButtonClick() {
-        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/admin/issuedbooks/issuedBooks.fxml");
+        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/pages/search/search.fxml");
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleStudentsButtonClick() {

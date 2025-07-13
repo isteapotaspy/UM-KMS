@@ -13,64 +13,128 @@
 
 <AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.dashboard.DashboardController">
     <stylesheets>
+        <URL value="@../../../utils/GlobalCSS/cards.css" />
+        <URL value="@../../../utils/GlobalCSS/sidebar.css" />
         <URL value="@dashboard.css" />
     </stylesheets>
    <children>
-      <VBox prefHeight="81.0" prefWidth="180.0">
+      <HBox prefHeight="104.0" prefWidth="750.0" spacing="6.0" AnchorPane.topAnchor="12.0">
          <children>
-            <Label text="Currently borrowing">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="36.0" prefWidth="140.0">
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
                <children>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/student/icons/sidebar/books.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="40.0" prefWidth="124.0" text="10 Books">
-                     <padding>
-                        <Insets left="12.0" />
-                     </padding>
+                  <Label text="Unsettled fees" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
                   </Label>
+                  <HBox prefHeight="36.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/student/icons/sidebar/fees.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="40.0" prefWidth="124.0" text="PHP 250" textFill="WHITE">
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Hyperlink text="Settle fees through OSA" />
                </children>
-            </HBox>
-            <Hyperlink text="Borrow more books" />
+               <padding>
+                  <Insets left="24.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+               <children>
+                  <Label text="Currently borrowing" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="36.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/student/icons/sidebar/books.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="40.0" prefWidth="124.0" text="10 Books" textFill="WHITE">
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Hyperlink text="Borrow more books" />
+               </children>
+               <padding>
+                  <Insets left="24.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+               <children>
+                  <Label text="Reserved books" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="36.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/student/icons/sidebar/request_1.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="40.0" prefWidth="124.0" text="10 Books" textFill="WHITE">
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Hyperlink text="Request additional books" />
+               </children>
+               <padding>
+                  <Insets left="24.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="81.0" prefWidth="180.0" styleClass="card">
+               <children>
+                  <Label text="Return deadline" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="36.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/student/icons/sidebar/reserved.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="40.0" prefWidth="124.0" text="7/12/2024" textFill="WHITE">
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Hyperlink text="FAQs about returns" />
+               </children>
+               <padding>
+                  <Insets left="24.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
          </children>
          <padding>
-            <Insets left="24.0" right="12.0" top="12.0" />
+            <Insets left="6.0" />
          </padding>
-      </VBox>
-      <VBox layoutX="180.0" prefHeight="81.0" prefWidth="180.0">
-         <children>
-            <Label text="Requested and reserved">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="36.0" prefWidth="140.0">
-               <children>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/student/icons/sidebar/request_1.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="40.0" prefWidth="124.0" text="10 Books">
-                     <padding>
-                        <Insets left="12.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
-            <Hyperlink text="Request additional books" />
-         </children>
-         <padding>
-            <Insets left="24.0" right="12.0" top="12.0" />
-         </padding>
-      </VBox>
-      <VBox layoutY="88.0" prefHeight="200.0" prefWidth="294.0">
+      </HBox>
+      <Label layoutX="251.0" layoutY="296.0" text="JANE HELPPPPP HUHUHUU I'M RUNNING OUT OF IDEAS BRUH" />
+      <VBox layoutY="116.0" prefHeight="200.0" prefWidth="294.0">
          <children>
             <Label prefHeight="29.0" prefWidth="97.0" text="Announcements">
                <font>
@@ -80,63 +144,8 @@
             <Label fx:id="announcementText" alignment="TOP_LEFT" prefHeight="201.0" prefWidth="270.0" text="&lt;text&gt;" textOverrun="CLIP" />
          </children>
          <padding>
-            <Insets left="24.0" top="12.0" />
+            <Insets left="24.0" top="24.0" />
          </padding>
       </VBox>
-      <VBox layoutX="390.0" prefHeight="81.0" prefWidth="180.0">
-         <children>
-            <Label text="Return deadline">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="36.0" prefWidth="140.0">
-               <children>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/student/icons/sidebar/reserved.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="40.0" prefWidth="124.0" text="7/12/2024">
-                     <padding>
-                        <Insets left="12.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
-            <Hyperlink text="FAQs about returns" />
-         </children>
-         <padding>
-            <Insets left="24.0" right="12.0" top="12.0" />
-         </padding>
-      </VBox>
-      <VBox layoutX="570.0" prefHeight="81.0" prefWidth="180.0">
-         <children>
-            <Label text="Unsettled fees">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="36.0" prefWidth="140.0">
-               <children>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/student/icons/sidebar/fees.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="40.0" prefWidth="124.0" text="PHP 250">
-                     <padding>
-                        <Insets left="12.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
-            <Hyperlink text="Settle fees through OSA" />
-         </children>
-         <padding>
-            <Insets left="24.0" right="12.0" top="12.0" />
-         </padding>
-      </VBox>
-      <Label layoutX="243.0" layoutY="271.0" text="JANE HELPPPPP HUHUHUU I'M RUNNING OUT OF IDEAS BRUH" />
    </children>
 </AnchorPane>

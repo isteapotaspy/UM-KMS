@@ -1,0 +1,30 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+
+/*
+    THIS IS REUSABLE CARD CLASSES
+    declare a design in CSS using .card{}
+    refer to it in FXML like so
+    <stylesheets>
+        <URL value="@../../../utils/GlobalCSS/cards.css" /> <------- this is what you want
+        <URL value="@dashboard.css" />
+    </stylesheets>
+    then apply it to individual components like <Label styleClass="card"/>
+*/
+.card {
+    -fx-background-color: #02394a;
+    -fx-background-size:  1200 900;
+    -fx-background-radius: 15;
+    -fx-border-width: 5;
+    
+}
+
+.card:hover {
+    -fx-background-color:linear-gradient(to right, #EB4B98, #F26DF9);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 6);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-translate-y: -2;
+}

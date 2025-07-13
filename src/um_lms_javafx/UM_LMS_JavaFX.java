@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -22,6 +23,8 @@ public class UM_LMS_JavaFX extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.getIcons().add(new Image(getClass().getResource("/um_lms_javafx/assets/um_logo_window.png").toString()));
+        stage.setTitle("University of Mindanao Library Management System");
         stage.setScene(scene);
         stage.show();
     }

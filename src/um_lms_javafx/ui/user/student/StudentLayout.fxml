@@ -13,6 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.StudentLayoutController">
     <stylesheets>
+        <URL value="@../../utils/GlobalCSS/sidebar.css" />
         <URL value="@studentlayout.css" />
     </stylesheets>
    <children>
@@ -72,7 +73,7 @@
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/request.png" />
                            </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Request">
+                        <Label prefHeight="36.0" prefWidth="128.0" text="Borrow">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin></Label>
@@ -128,7 +129,7 @@
             
             <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="258.0">
                <children>
-                  <HBox fx:id="profileButton" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleProfileButtonClicked">
+                  <HBox fx:id="profileButton" onMouseClicked="#handleProfileButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
                      <children>
                         <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Profile" />
                      </children>
@@ -136,7 +137,7 @@
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleSettingsButtonClicked">
+                  <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleSettingsButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
                      <children>
                         <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Settings" />
                      </children>
@@ -144,7 +145,7 @@
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons" onMouseClicked="#handleLogoutButtonClicked">
+                  <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" onMouseClicked="#handleLogoutButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
                      <children>
                         <Label prefHeight="36.0" prefWidth="278.0" styleClass="sidebarButtons" text="Logout" />
                      </children>

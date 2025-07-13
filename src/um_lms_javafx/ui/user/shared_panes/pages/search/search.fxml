@@ -3,9 +3,8 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
@@ -36,17 +37,18 @@
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Search">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Search by title" />
-                      <MenuItem mnemonicParsing="false" text="Search by term" />
-                      <MenuItem mnemonicParsing="false" text="Search by genre" />
-                        <MenuItem mnemonicParsing="false" text="Search by author" />
-                    </items>
+                  <MenuButton fx:id="searchBookMenuButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" text="Search Book">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Search ID" />
+                        <MenuItem mnemonicParsing="false" text="Search Title" />
+                        <MenuItem mnemonicParsing="false" text="Search Author" />
+                        <MenuItem mnemonicParsing="false" text="Search Category" />
+                        <MenuItem mnemonicParsing="false" text="Search Year" />
+                     </items>
                      <HBox.margin>
-                        <Insets left="12.0" />
+                        <Insets left="24.0" />
                      </HBox.margin>
-                  </SplitMenuButton>
+                  </MenuButton>
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="272.0" text="Searched from total of 69,420 results." textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets />
@@ -63,22 +65,18 @@
                   <Insets top="6.0" />
                </VBox.margin>
             </HBox>
-            <ScrollPane prefHeight="473.0" prefWidth="750.0">
-               <padding>
-                  <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
-               </padding>
-               <content>
-                  <TableView prefHeight="400.0" prefWidth="700.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-               </content>
+            <TableView fx:id="totalBooksTableView" editable="true" fixedCellSize="100.0" prefHeight="444.0" prefWidth="750.0">
+               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="68.0" text="ID" />
+                  <TableColumn fx:id="titleColumn" prefWidth="177.0" text="Title" />
+                  <TableColumn fx:id="authorColumn" prefWidth="146.0" text="Author" />
+                  <TableColumn fx:id="publishedDateColumn" prefWidth="125.0" text="Published Date" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="126.0" text="Category" />
+               </columns>
                <VBox.margin>
-                  <Insets top="12.0" />
+                  <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
                </VBox.margin>
-            </ScrollPane>
+            </TableView>
          </children>
          <padding>
             <Insets top="24.0" />
