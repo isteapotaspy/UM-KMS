@@ -44,7 +44,7 @@ public class AdminLayoutController implements Initializable {
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleIssuedBooksButtonClick() {
-        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/search/search.fxml");
+        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/admin/issuedbooks/issuedBooks.fxml");
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleStudentsButtonClick() {

@@ -13,18 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" 
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
    <children>
-      <VBox prefHeight="520.0" prefWidth="750.0">
+      <VBox layoutY="35.0" prefHeight="520.0" prefWidth="750.0">
          <children>
             <Label text="Comprehensive Library Search">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets left="24.0" />
@@ -70,8 +68,8 @@
                   <TableColumn fx:id="idColumn" prefWidth="68.0" text="ID" />
                   <TableColumn fx:id="titleColumn" prefWidth="177.0" text="Title" />
                   <TableColumn fx:id="authorColumn" prefWidth="146.0" text="Author" />
-                  <TableColumn fx:id="publishedDateColumn" prefWidth="125.0" text="Published Date" />
-                  <TableColumn fx:id="categoryColumn" prefWidth="126.0" text="Category" />
+                  <TableColumn fx:id="publishedDateColumn" prefWidth="160.0" text="Published Date" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="150.0" text="Genre" />
                </columns>
                <VBox.margin>
                   <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
