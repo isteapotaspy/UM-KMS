@@ -3,13 +3,16 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.LoginLayoutController">
     <stylesheets>
+        <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/login.css" />
         <URL value="@loginlayout.css" />
     </stylesheets>
    <children>
+      <MediaView fx:id="loginBackgroundVideo" fitHeight="600.0" fitWidth="1000.0" preserveRatio="false" />
       
-      <Pane fx:id="authenticationPane" layoutX="553.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0" />
+      <Pane fx:id="authenticationPane" styleClass="loginPane" layoutX="553.0" layoutY="50.0" prefHeight="500.0" prefWidth="400.0" />
    </children>
 </AnchorPane>

@@ -7,8 +7,12 @@ package um_lms_javafx.server.model.user;
 /**
  *
  * @author Ravin
+ * @param <T>
  */
-abstract class User {
+
+
+
+public abstract class User {
     private String firstName;
     private String middleName;
     private String lastName;
@@ -18,6 +22,7 @@ abstract class User {
     private String email;
     private String phoneNumber;
     
+    private String password;
     protected boolean adminAccess;
     
     public User(String firstName, String middleName, String lastName, String email, String phoneNumber) {
@@ -36,8 +41,9 @@ abstract class User {
     public void setLastName(String lastName) { this.lastName = lastName; }
     public void setEmail(String email) { this.email = email; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPassword(String password) {  } // ALWAYS HASH THIS SHIT SO THAT IT ISN'T EXPOSED
     public void setProfilePicture(byte[] profilePicture) { this.profilePicture = profilePicture; }
-    
+   
     public String getFirstName() {return firstName; }
     public String getMiddleName() {return middleName; }
     public String getLastName() { return lastName; }

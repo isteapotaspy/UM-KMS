@@ -4,6 +4,7 @@
  */
 package um_lms_javafx.ui;
     
+import java.io.File;
 import um_lms_javafx.ui.utils.LogicUI.PaneSwitch;
 
 import java.net.URL;
@@ -12,6 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 /**
  * FXML Controller class
@@ -19,24 +23,38 @@ import javafx.scene.layout.Pane;
  * @author Ravin
  */
 public class LoginLayoutController implements Initializable {
-    // check out the code in PaneSwitch.java in students folder
-    // THIS IS ONCE INITIALIZED and handles ALL OF THE PANE SWITCHING ON THIS ENTIRE FRAME
-    PaneSwitch authenticationSwitcher = new PaneSwitch();
-    
-    
-    // REVIEW THIS SPECIFIC CODE
-    private LoginLayoutController parentController;
-
-    public void setParentController(LoginLayoutController controller) {
-        this.parentController = controller;
-    }
     
     @FXML
     Pane authenticationPane;
     
+    @FXML 
+    MediaView loginBackgroundVideo;
+    private MediaPlayer mediaPlayer;
+    
+    // check out the code in PaneSwitch.java in students folder
+    // THIS IS ONCE INITIALIZED and handles ALL OF THE PANE SWITCHING ON THIS ENTIRE FRAME
+    PaneSwitch authenticationSwitcher = new PaneSwitch();
+    
+    // REVIEW THIS SPECIFIC CODE
+    private LoginLayoutController parentController;
+    // IMPORTS FOR MEDIAVIEW
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // FOR VIDEO
+        URL resource = getClass().getResource("/um_lms_javafx/assets/library_backgroundvideo.mp4");
+        if (resource != null) {
+            Media backgroundVideo = new Media(resource.toExternalForm());
+            mediaPlayer = new MediaPlayer(backgroundVideo);
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            loginBackgroundVideo.setMediaPlayer(mediaPlayer);
+        } else {
+            System.out.println("Video file not found!");
+        }
+        
+        // FOR PANE SWITCHING
         Pane newPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
        
         URL fxmlPath = getClass().getResource("/um_lms_javafx/ui/login/login.fxml");
@@ -55,5 +73,9 @@ public class LoginLayoutController implements Initializable {
         if(parentController != null) {
            //parentController.getPage("/um_lms_javafx/ui/signup/signup.fxml");
         }
+    }
+    
+    public void setParentController(LoginLayoutController controller) {
+        this.parentController = controller;
     }
 }

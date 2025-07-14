@@ -1,0 +1,10 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+
+.loginPane {
+    -fx-background-color: rgba(128, 0, 0,0.9);
+    -fx-background-radius: 12;
+    -fx-background-insets: 12;
+}
