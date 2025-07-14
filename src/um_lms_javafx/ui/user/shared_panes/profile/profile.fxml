@@ -17,12 +17,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.profile.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.profile.ProfileController">
     <stylesheets>
         <URL value="@profile.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="38.0" layoutY="231.0" prefHeight="200.0" prefWidth="180.0" spacing="12.0">
+      <VBox layoutX="38.0" layoutY="323.0" prefHeight="200.0" prefWidth="180.0" spacing="12.0">
          <children>
             <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Change profile picture">
                <graphic>
@@ -65,14 +65,14 @@
             <Insets top="12.0" />
          </padding>
       </VBox>
-      <Label layoutX="38.0" layoutY="14.0" text="Library Profile">
+      <Label layoutX="38.0" layoutY="46.0" text="Library Profile">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <HBox layoutY="27.0" prefHeight="204.0" prefWidth="750.0">
+      <HBox layoutX="2.0" layoutY="86.0" prefHeight="204.0" prefWidth="750.0">
          <children>
-            <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" smooth="false">
+            <ImageView fitHeight="213.0" fitWidth="180.0" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../../../../assets/student/glowup.jpg" />
                </image>
@@ -126,7 +126,7 @@
             <Insets left="36.0" top="24.0" />
          </padding>
       </HBox>
-      <VBox layoutX="252.0" layoutY="231.0" prefHeight="164.0" prefWidth="402.0">
+      <VBox layoutX="265.0" layoutY="353.0" prefHeight="164.0" prefWidth="402.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>

@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
     <children>
-        <VBox layoutY="35.0" prefHeight="520.0" prefWidth="750.0">
+        <VBox layoutY="-2.0" prefHeight="606.0" prefWidth="750.0">
             <children>
                 <Label text="Comprehensive Library Search">
                     <font>

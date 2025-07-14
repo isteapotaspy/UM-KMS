@@ -12,79 +12,83 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.request.RequestController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.request.RequestController">
     <stylesheets>
         <URL value="@request.css" />
     </stylesheets>
    <children>
-      <Label layoutY="1.0" prefHeight="27.0" prefWidth="757.0" text="Requests and reservations">
+      <Label layoutY="52.0" prefHeight="27.0" prefWidth="757.0" text="Requests and Reservations">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
          <padding>
-            <Insets left="24.0" top="12.0" />
+            <Insets left="24.0" />
          </padding>
       </Label>
-      <VBox layoutY="47.0" prefHeight="200.0" prefWidth="757.0">
+      <VBox layoutY="98.0" prefHeight="488.0" prefWidth="757.0" spacing="12.0">
          <children>
-            <HBox prefHeight="41.0" prefWidth="757.0">
+            <VBox prefHeight="492.0" prefWidth="757.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="559.0" text="Currently borrowed books">
-                     <HBox.margin>
+                  <HBox prefHeight="23.0" prefWidth="526.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="559.0" text="Currently borrowed books">
+                           <HBox.margin>
+                              <Insets left="24.0" right="24.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Hyperlink fx:id="borrowBook" alignment="BOTTOM_RIGHT" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="547.0" text="FAQs on how to borrow a book in the library.">
+                           <HBox.margin>
+                              <Insets right="24.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="210.0" prefWidth="200.0">
+                     <VBox.margin>
                         <Insets left="24.0" right="24.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Hyperlink fx:id="borrowBook" alignment="BOTTOM_RIGHT" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="547.0" text="FAQs on how to borrow a book in the library.">
-                     <HBox.margin>
-                        <Insets right="24.0" />
-                     </HBox.margin>
-                  </Hyperlink>
+                     </VBox.margin>
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="690.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <VBox prefHeight="210.0" prefWidth="757.0">
+                     <children>
+                        <HBox prefHeight="41.0" prefWidth="757.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="559.0" text="Currently reserved books">
+                                 <HBox.margin>
+                                    <Insets left="24.0" right="24.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Hyperlink alignment="BASELINE_RIGHT" prefHeight="23.0" prefWidth="550.0" text="Click here to reserve books from the library.">
+                                 <HBox.margin>
+                                    <Insets right="24.0" />
+                                 </HBox.margin>
+                              </Hyperlink>
+                           </children>
+                        </HBox>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets left="24.0" right="24.0" />
+                           </VBox.margin>
+                           <content>
+                              <TableView prefHeight="175.0" prefWidth="690.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="C1" />
+                                    <TableColumn prefWidth="75.0" text="C2" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
                </children>
-            </HBox>
-            <ScrollPane prefHeight="215.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets left="24.0" right="24.0" />
-               </VBox.margin>
-               <content>
-                  <TableView prefHeight="175.0" prefWidth="690.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-               </content>
-            </ScrollPane>
-         </children>
-      </VBox>
-      <VBox layoutY="270.0" prefHeight="200.0" prefWidth="757.0">
-         <children>
-            <HBox prefHeight="41.0" prefWidth="757.0">
-               <children>
-                  <Label prefHeight="17.0" prefWidth="559.0" text="Currently reserved books">
-                     <HBox.margin>
-                        <Insets left="24.0" right="24.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Hyperlink alignment="BASELINE_RIGHT" prefHeight="23.0" prefWidth="550.0" text="Click here to reserve books from the library.">
-                     <HBox.margin>
-                        <Insets right="24.0" />
-                     </HBox.margin>
-                  </Hyperlink>
-               </children>
-            </HBox>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets left="24.0" right="24.0" />
-               </VBox.margin>
-               <content>
-                  <TableView prefHeight="175.0" prefWidth="690.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-               </content>
-            </ScrollPane>
+            </VBox>
          </children>
       </VBox>
    </children>

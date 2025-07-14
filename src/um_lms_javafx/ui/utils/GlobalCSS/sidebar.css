@@ -1,7 +1,8 @@
 
 
 #sidebar {
-    -fx-background-color: #02394a;
+    -fx-background-color: rgba(2, 57, 74, 1);
+    
 }
 .sidebarButtons:hover {
    -fx-background-color: linear-gradient(to right, #02394A 0%, #043565 25%, #5158BB 50%, #F26DF9 75%, #EB4B98 100%);

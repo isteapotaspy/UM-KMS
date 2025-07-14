@@ -48,11 +48,10 @@ public class BookDAO {
             }
         }
         return null; 
-    }
-    //CAN BE APPLIED ON OTHERS
+    } //CAN BE APPLIED ON OTHERS
     
     //UPDATE by ID
-    public boolean updateBooByID(int id, String title, String newTitle, String newAuthor, String newPublishedDate, String newGenre, String newIsbn,
+    public boolean updateBookByID(int id, String title, String newTitle, String newAuthor, String newPublishedDate, String newGenre, String newIsbn,
             String newEdition, String newPages, boolean newStatus, String newCopies, String newFloor, String newShelf) {
         Book book = getBookById(id);
         if (book != null) {

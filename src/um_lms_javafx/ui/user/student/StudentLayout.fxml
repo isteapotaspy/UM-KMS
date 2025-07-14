@@ -17,14 +17,14 @@
         <URL value="@studentlayout.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="sidebar" prefHeight="607.0" prefWidth="250.0">
+      <Pane fx:id="sidebar" prefHeight="609.0" prefWidth="250.0">
          <children>
-            <ImageView fitHeight="74.0" fitWidth="178.0" layoutX="36.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="74.0" fitWidth="178.0" layoutX="36.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../assets/um_logo.png" />
                </image>
             </ImageView>
-            <VBox layoutY="142.0" prefHeight="206.0" prefWidth="250.0">
+            <VBox layoutY="159.0" prefHeight="206.0" prefWidth="250.0" spacing="12.0">
                <children>
                   <HBox fx:id="dashboardPane" onMouseClicked="#handleDashboardButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
@@ -32,10 +32,13 @@
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/dashboard.png" />
                            </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Dashboard">
+                        <Label prefHeight="36.0" prefWidth="128.0" text="Dashboard" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="12.0" />
-                           </HBox.margin></Label>
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -51,13 +54,16 @@
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/search.png" />
                            </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Search">
+                        <Label prefHeight="36.0" prefWidth="128.0" text="Search" textFill="WHITE">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <HBox.margin>
                               <Insets left="12.0" />
-                           </HBox.margin></Label>
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -67,16 +73,21 @@
                      </padding>
                   </HBox>
                   
-                  <HBox fx:id="requestPane" layoutX="34.0" layoutY="10.0" onMouseClicked="#handleRequestButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
+                              <HBox fx:id="requestPane" layoutX="34.0" layoutY="10.0" onMouseClicked="#handleRequestButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
                      <children>
                         <ImageView fx:id="requestImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/request.png" />
-                           </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Borrow">
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="128.0" text="Borrow" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="12.0" />
-                           </HBox.margin></Label>
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -92,10 +103,13 @@
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/history.png" />
                            </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="History">
+                        <Label prefHeight="36.0" prefWidth="128.0" text="History" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="12.0" />
-                           </HBox.margin></Label>
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -112,10 +126,13 @@
                            <image>
                               <Image url="@../../../assets/student/icons/sidebar/messages.png" />
                            </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Messages">
+                        <Label prefHeight="36.0" prefWidth="128.0" text="Messages" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="12.0" />
-                           </HBox.margin></Label>
+                           </HBox.margin>
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -127,27 +144,36 @@
                </children>
             </VBox>
             
-            <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="258.0">
+            <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="250.0">
                <children>
                   <HBox fx:id="profileButton" onMouseClicked="#handleProfileButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
                      <children>
-                        <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Profile" />
+                        <Label prefHeight="36.0" prefWidth="181.0" styleClass="sidebarButtons" text="Profile" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleSettingsButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                  <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleSettingsButtonClicked" prefHeight="36.0" prefWidth="224.0" styleClass="sidebarButtons">
                      <children>
-                        <Label prefHeight="36.0" prefWidth="273.0" styleClass="sidebarButtons" text="Settings" />
+                        <Label prefHeight="36.0" prefWidth="180.0" styleClass="sidebarButtons" text="Settings" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" onMouseClicked="#handleLogoutButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
+                  <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" onMouseClicked="#handleLogoutButtonClicked" prefHeight="36.0" prefWidth="245.0" styleClass="sidebarButtons">
                      <children>
-                        <Label prefHeight="36.0" prefWidth="278.0" styleClass="sidebarButtons" text="Logout" />
+                        <Label prefHeight="36.0" prefWidth="180.0" styleClass="sidebarButtons" text="Logout" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets left="72.0" />
@@ -157,55 +183,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="dynamicPane" layoutX="250.0" layoutY="72.0" prefHeight="520.0" prefWidth="750.0" />
-      <Pane layoutX="250.0" prefHeight="80.0" prefWidth="750.0">
-         <children>
-            <HBox layoutY="-14.0" prefHeight="80.0" prefWidth="750.0">
-               <children>
-                  <VBox prefHeight="68.0" prefWidth="454.0">
-                     <children>
-                        <Label text="Hi, Jane Concerman!">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="25.0" prefWidth="239.0" text="Student Dashboard ">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="295.0">
-                     <children>
-                        <Label text="9:45AM" textAlignment="RIGHT">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="25.0" prefWidth="381.0" text="The library is now open." textAlignment="RIGHT">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets right="24.0" />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets left="24.0" top="24.0" />
-               </padding>
-            </HBox>
-         </children>
-         <padding>
-            <Insets top="24.0" />
-         </padding>
-      </Pane>
+      <Pane fx:id="dynamicPane" layoutX="250.0" prefHeight="607.0" prefWidth="750.0" />
    </children>
    
 </AnchorPane>

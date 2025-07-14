@@ -52,4 +52,8 @@ public class AdminLayoutController implements Initializable {
         dynamicPane.getChildren().setAll(newPage);
     }
     
+    
+    public void handleProfileButtonClicked() {}
+    public void handleSettingsButtonClicked() {}
+    public void handleLogoutButtonClicked() {}
 }
