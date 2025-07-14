@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="addBookPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="um_lms_javafx.ui.user.popups.addbook.AddbookController">
+    <stylesheets>
+        <URL value="@addbook.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="10.0" layoutY="9.0" prefHeight="29.0" prefWidth="198.0" text="Add Book">
+         <padding>
+            <Insets left="24.0" top="12.0" />
+         </padding>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="17.0" layoutY="56.0" prefHeight="240.0" prefWidth="375.0" vgap="3.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="96.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <padding>
+            <Insets left="12.0" />
+         </padding>
+         <children>
+            <Label />
+            <Label alignment="TOP_LEFT" layoutX="99.0" layoutY="14.0" prefHeight="24.0" prefWidth="79.0" text="Book Title" GridPane.rowIndex="1" />
+            <Label alignment="TOP_LEFT" prefHeight="46.0" prefWidth="49.0" text="Author(s)" GridPane.rowIndex="2" />
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="66.0" prefWidth="32.0" text="Pages" GridPane.rowIndex="7" />
+            <Label alignment="TOP_LEFT" layoutX="66.0" layoutY="134.0" prefHeight="51.0" prefWidth="26.0" text="ISBN" GridPane.rowIndex="4" />
+            <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="110.0" prefHeight="24.0" prefWidth="109.0" text="Publication Date" GridPane.rowIndex="3" />
+            <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="110.0" prefHeight="61.0" prefWidth="37.0" text="Edition" GridPane.rowIndex="6" />
+            <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="134.0" prefHeight="39.0" prefWidth="32.0" text="Genre" GridPane.rowIndex="5" />
+            <Label layoutX="22.0" layoutY="182.0" GridPane.rowIndex="8" />
+            <Label alignment="TOP_LEFT" prefHeight="96.0" prefWidth="101.0" text="Description" GridPane.rowIndex="8" />
+            <TextField fx:id="bookTitleTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="authorTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="isbnTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="genreTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="editionTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="pagesTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <DatePicker fx:id="publishedDatePicker" prefHeight="25.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextArea fx:id="descriptionTextArea" prefHeight="77.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
+      <GridPane hgap="12.0" layoutX="431.0" layoutY="85.0" prefHeight="105.0" prefWidth="134.0" vgap="3.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="93.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="BASELINE_RIGHT" prefHeight="96.0" prefWidth="101.0" text="Status" />
+            <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="35.0" prefHeight="96.0" prefWidth="101.0" text="Copies" GridPane.rowIndex="1" />
+            <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="96.0" prefWidth="101.0" text="Floor" GridPane.rowIndex="2" />
+            <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="35.0" prefHeight="96.0" prefWidth="101.0" text="Shelf" GridPane.rowIndex="3" />
+            <TextField fx:id="statusTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="copiesTextField" layoutX="71.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="floorTextField" layoutX="71.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="shelfTextField" layoutX="71.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Button fx:id="addBookButton" layoutX="486.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Add Book" />
+      <Button fx:id="exitButton" layoutX="523.0" layoutY="20.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Exit" />
+   </children>
+</AnchorPane>

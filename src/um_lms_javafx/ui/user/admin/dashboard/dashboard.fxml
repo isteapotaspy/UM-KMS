@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.dashboard.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.dashboard.DashboardController">
     <stylesheets>
         <URL value="@../../../utils/GlobalCSS/cards.css" />
         <URL value="@../../../utils/GlobalCSS/sidebar.css" />
         <URL value="@dashboard.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="70.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
+      <Pane layoutX="62.0" layoutY="142.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
          <children>
             <Label alignment="CENTER" layoutX="17.0" layoutY="6.0" prefHeight="38.0" prefWidth="105.0" text="Issued Books" textAlignment="RIGHT" textFill="WHITE">
                <font>
@@ -36,7 +39,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="230.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
+      <Pane layoutX="222.0" layoutY="142.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
          <children>
             <Label alignment="CENTER" layoutX="17.0" layoutY="7.0" prefHeight="38.0" prefWidth="105.0" text="Total Books" textAlignment="RIGHT" textFill="WHITE">
                <font>
@@ -55,7 +58,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="390.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
+      <Pane layoutX="382.0" layoutY="142.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
          <children>
             <Label alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="38.0" prefWidth="125.0" text="Total Students" textAlignment="RIGHT" textFill="WHITE">
                <font>
@@ -74,7 +77,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="550.0" layoutY="35.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
+      <Pane layoutX="542.0" layoutY="142.0" prefHeight="118.0" prefWidth="145.0" styleClass="card">
          <children>
             <Label alignment="CENTER" layoutX="10.0" layoutY="8.0" prefHeight="38.0" prefWidth="125.0" text="Books Returned" textAlignment="RIGHT" textFill="WHITE">
                <font>
@@ -93,29 +96,71 @@
             </Label>
          </children>
       </Pane>
-      <TableView fx:id="newUsersTable" layoutX="70.0" layoutY="195.0" prefHeight="277.0" prefWidth="306.0">
+      <TableView fx:id="newUsersTable" layoutX="62.0" layoutY="302.0" prefHeight="277.0" prefWidth="306.0">
         <columns>
           <TableColumn prefWidth="147.0" text="Name" />
           <TableColumn prefWidth="56.0" text="ID" />
             <TableColumn prefWidth="115.0" text="Books Issued" />
         </columns>
       </TableView>
-      <TableView fx:id="newBooksTable" layoutX="390.0" layoutY="195.0" prefHeight="277.0" prefWidth="306.0">
+      <TableView fx:id="newBooksTable" layoutX="382.0" layoutY="302.0" prefHeight="277.0" prefWidth="306.0">
          <columns>
             <TableColumn prefWidth="143.0" text="Title" />
             <TableColumn prefWidth="60.0" text="ID" />
             <TableColumn prefWidth="102.0" text="Date Issued" />
          </columns>
       </TableView>
-      <Label layoutX="70.0" layoutY="157.0" prefHeight="38.0" prefWidth="105.0" text="New Users" textAlignment="RIGHT" textFill="#043656">
+      <Label layoutX="62.0" layoutY="264.0" prefHeight="38.0" prefWidth="105.0" text="New Users" textAlignment="RIGHT" textFill="#043656">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="390.0" layoutY="157.0" prefHeight="38.0" prefWidth="105.0" text="New Books" textAlignment="RIGHT" textFill="#043565">
+      <Label layoutX="382.0" layoutY="264.0" prefHeight="38.0" prefWidth="105.0" text="New Books" textAlignment="RIGHT" textFill="#043565">
          <font>
             <Font name="Arial" size="17.0" />
          </font>
       </Label>
+      <HBox layoutX="7.0" prefHeight="80.0" prefWidth="750.0">
+         <children>
+            <VBox prefHeight="68.0" prefWidth="454.0">
+               <children>
+                  <Label text="Hi, Admin!">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <Label prefHeight="25.0" prefWidth="239.0" text="Admin / Dashboard ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="headerPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="295.0">
+               <children>
+                  <Label text="9:45AM" textAlignment="RIGHT">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="381.0" text="The library is now open." textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="24.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="24.0" top="24.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
