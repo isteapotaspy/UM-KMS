@@ -26,8 +26,7 @@ public class Book {
     private String shelf;
     private byte[] bookCover;
 
-    public Book() {
-    }
+    public Book() {}
 
     public Book(String title, String author, String publishedDate, String genre, String isbn,
             String edition, String pages, boolean status, String copies, String floor, String shelf) {

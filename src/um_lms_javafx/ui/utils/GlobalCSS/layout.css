@@ -1,0 +1,10 @@
+
+
+.mainPane {
+    -fx-background-color: rgba(2, 57, 74, 1);
+}
+
+.dynamicPane {
+    -fx-background-color: rgba(240, 234, 214, 1);
+    -fx-background-radius: 15;
+}
