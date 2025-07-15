@@ -1,53 +1,92 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Jul 13, 2025, 10:10:41 AM
-    Author     : Ravin
-*/
 
-.tableView {
-    -fx-background-color: tomato;
-    -fx-border-color: #02394A;
-    -fx-border-radius: 12;
-    -fx-border-insets: 12;
-    -fx-table-cell-border-color: red;
+.modern-table {
+    -fx-background-color: rgba(240, 234, 214, 1); /* eggshell */
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #043565;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0.2, 0, 6);
+    -fx-font-family: "Nunito";
+    -fx-font-size: 13px;
 }
 
-.tableView .column-header {
-    -fx-background-color: #f1f1f1;
-    -fx-border-color: transparent transparent gray transparent;
-    -fx-font-weight: bold;
+/* COLUMN HEADER */
+.modern-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 5px;
+    -fx-border-radius: 15px 15px 0 0;
 }
-
-.tableRowCell {
-    -fx-background-color: white;
-    -fx-border-colo: lightgray;
-}
-
-.tableRowCell:odd {
-    -fx-background-color: goldenrod;    
-}
-
-.tableRowCell:even {
-    -fx-background-color: white;    
-}
-
-.tableRowCell:selected {
-    -fx-background-color: green;
-    -fx-text-fill: white;
-}
-
-.tableRowCell:filled:hover {
-    -fx-background-color: darkred;  
-}
-
-.tableCell {
-    -fx-alignment: CENTER_LEFT;
-    -fx-font-size: 12px;
+.modern-table .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-background-radius: 15px 15px 0 0;
     -fx-border-color: transparent;
 }
 
+.modern-table .column-header .label {
+    -fx-font-family: "Nunito Bold";
+}
+
+.modern-table .column-header, .tableView .column-header .label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ROWS */
+.modern-table .table-row-cell {
+    -fx-background-color: rgba(240, 234, 214, 1);
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.modern-table .table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+
+.modern-table .table-row-cell:selected {
+    -fx-background-color: #5158BB;
+    -fx-text-fill: white;
+}
+
+/* ROW HOVER */
+.modern-table .table-row-cell:hover {
+    -fx-background-color:linear-gradient(to right, #EB4B98, #F26DF9);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 6);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-translate-y: -3;
+}
+
+/* REMOVE CORNERS */
+.modern-table .corner {
+    -fx-background-color: transparent;
+}
+
+/* ScrollBar */
+.modern-table .scroll-bar:vertical,
+.modern-table .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.modern-table .scroll-bar:vertical .thumb,
+.modern-table .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(2, 57, 74, 1); ;
+    -fx-background-radius: 10px;
+}
+
+.modern-table .scroll-bar {
+    -fx-opacity: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+}
+
+.modern-table:hover .scroll-bar {
+    -fx-opacity: 1;
+    -fx-max-width: 6px;
+    -fx-max-height: 6px;
+}
 
 

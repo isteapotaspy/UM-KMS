@@ -13,9 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="606.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.search.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
+        <URL value="@../../../utils/GlobalCSS/tables.css" />
     </stylesheets>
     <children>
         <VBox layoutY="-2.0" prefHeight="606.0" prefWidth="750.0">
@@ -63,13 +64,13 @@
                         <Insets top="6.0" />
                     </VBox.margin>
                 </HBox>
-                <TableView fx:id="totalBooksTableView" editable="true" fixedCellSize="100.0" prefHeight="444.0" prefWidth="750.0">
+                <TableView fx:id="booksTableView" editable="true" fixedCellSize="100.0" prefHeight="444.0" prefWidth="750.0" styleClass="modern-table">
                     <columns>
                         <TableColumn fx:id="idColumn" prefWidth="68.0" text="ID" />
                         <TableColumn fx:id="titleColumn" prefWidth="177.0" text="Title" />
                         <TableColumn fx:id="authorColumn" prefWidth="146.0" text="Author" />
                         <TableColumn fx:id="publishedDateColumn" prefWidth="160.0" text="Published Date" />
-                        <TableColumn fx:id="categoryColumn" prefWidth="150.0" text="Genre" />
+                        <TableColumn fx:id="genreColumn" prefWidth="150.0" text="Genre" />
                     </columns>
                     <VBox.margin>
                         <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />

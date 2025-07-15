@@ -5,3 +5,24 @@
 .mainFxmlClass {
 
 }
+
+#welcomeText {
+    -fx-font-family: "Nunito";
+    -fx-font-size: 24px;
+}
+
+#adminDashboardText {
+    -fx-font-family: "Nunito";
+    -fx-font-size: 16px;
+}
+
+#timeText {
+    -fx-font-family: "Nunito";
+    -fx-font-size: 24px;
+}
+
+#libraryStatusText {
+    -fx-font-family: "Nunito";
+    -fx-font-size: 16px;
+}
+
