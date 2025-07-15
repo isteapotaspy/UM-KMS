@@ -13,9 +13,15 @@
 /* COLUMN HEADER */
 .modern-table .column-header {
     -fx-background-color: transparent;
-    -fx-border-width: 0;
+    -fx-border-width: 0 1px 0 0;
     -fx-padding: 5px;
-    -fx-border-radius: 15px 15px 0 0;
+    -fx-border-radius: 0;
+    -fx-border-color: transparent rgba(2, 57, 74, 0.3) transparent transparent;
+    
+}
+
+.modern-table .column-header:last-child {
+    -fx-border-color: transparent transparent transparent transparent;
 }
 .modern-table .column-header-background {
     -fx-background-color: transparent;
@@ -32,14 +38,27 @@
 .modern-table .column-header, .tableView .column-header .label {
     -fx-font-size: 13px;
     -fx-text-fill: #333;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
 }
 
+.modern-table .table-cell {
+    -fx-alignment: center;
+}
 /* ROWS */
 .modern-table .table-row-cell {
     -fx-background-color: rgba(240, 234, 214, 1);
-    -fx-border-color: transparent;
+    -fx-border-color: transparent ;
+    -fx-border-width: 0;
     -fx-background-insets: 0;
+    -fx-text-alignment: center;
+}
+
+.modern-table .table-row-cell:first-child {
+    -fx-border-color: transparent transparent transparent transparent;
+}
+.modern-table .table-row-cell:last-child {
+    -fx-border-color: transparent transparent transparent transparent;
 }
 
 .modern-table .table-row-cell:odd {
@@ -55,9 +74,9 @@
 .modern-table .table-row-cell:hover {
     -fx-background-color:linear-gradient(to right, #EB4B98, #F26DF9);
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.5, 0, 6);
-    -fx-scale-x: 1.03;
-    -fx-scale-y: 1.03;
-    -fx-translate-y: -3;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-translate-y: -1;
 }
 
 /* REMOVE CORNERS */

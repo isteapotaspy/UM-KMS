@@ -7,11 +7,6 @@ package um_lms_javafx.server.DAO;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
 import um_lms_javafx.server.model.book.Book;
 /**
  *
@@ -24,8 +19,8 @@ public class BookDAO {
     
     //CREATE
     public void insertBook(String title, String author, LocalDateTime publishedDate, String genre, String isbn,
-            String edition, String pages, boolean status, String copies, String floor, String shelf) {
-        Book book = new Book(id++, title, author, publishedDate, genre, isbn, edition, pages, status, copies, floor, shelf);
+            String edition, String pages, boolean status, int copies, String floor, String shelf) {
+        Book book = new Book(id++, title, author, status, copies, publishedDate, genre, isbn, edition, pages, floor, shelf);
         bookList.add(book);
     }
     //READ ALL
@@ -53,7 +48,7 @@ public class BookDAO {
     
     //UPDATE by ID
     public boolean updateBookByID(int id, String title, String newTitle, String newAuthor, LocalDateTime newPublishedDate, String newGenre, String newIsbn,
-            String newEdition, String newPages, boolean newStatus, String newCopies, String newFloor, String newShelf) {
+            String newEdition, String newPages, boolean newStatus, int newCopies, String newFloor, String newShelf) {
         Book book = getBookById(id);
         if (book != null) {
             book.setTitle(newTitle);
@@ -72,7 +67,7 @@ public class BookDAO {
     }
     //UPDATE by TITLE
     public boolean updateBookByTitle(int id, String title, String newTitle, String newAuthor, LocalDateTime newPublishedDate, String newGenre, String newIsbn,
-            String newEdition, String newPages, boolean newStatus, String newCopies, String newFloor, String newShelf) {
+            String newEdition, String newPages, boolean newStatus, int newCopies, String newFloor, String newShelf) {
         Book book = getBookByTitle(title);
         if (book != null) {
             book.setTitle(newTitle);

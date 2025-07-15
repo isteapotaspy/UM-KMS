@@ -51,13 +51,12 @@ public class IssuedBooksController implements Initializable {
         Book quanMillzBook = new Book(
             "I Caught My Baby Daddy Cheating With My Grandma At Waffle House And Now I'm Raising Our Triplets Alone",
             "QuanMillz",
-            LocalDateTime.of(2021, 9, 14, 0, 0),
+            false, 12,
+            LocalDateTime.of(2021, 9, 14, 0, 0), 
             "Urban Fiction",
             "9780000000001",
             "Deluxe Street Edition",
-            "472",
-            false,               // Not currently available
-            "12",
+            "472",            
             "Basement",
             "Drama-Section-A1"
         );

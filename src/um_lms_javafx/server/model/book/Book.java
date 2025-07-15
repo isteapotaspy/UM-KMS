@@ -23,15 +23,14 @@ public class Book {
     private String description;
 
     public boolean status; //isAvailable or not
-    private String copies;
+    private int copies;
     private String floor;
     private String shelf;
     private byte[] bookCover;
 
     public Book() {}
 
-    public Book(String title, String author, LocalDateTime publishedDate, String genre, String isbn,
-            String edition, String pages, boolean status, String copies, String floor, String shelf) {
+    public Book(String title, String author, boolean status, int copies, LocalDateTime publishedDate, String genre, String isbn, String edition, String pages, String floor, String shelf) {
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
@@ -45,9 +44,8 @@ public class Book {
         this.shelf = shelf;
     }
 
-    public Book(int id, String title, String author, LocalDateTime publishedDate, String genre, String isbn, String edition, String pages, 
-            boolean status, String copies, String floor, String shelf) {
-        this(title, author, publishedDate, genre, isbn, edition, pages, status, copies, floor, shelf);
+    public Book(int id, String title, String author, boolean status, int copies, LocalDateTime publishedDate, String genre, String isbn, String edition, String pages, String floor, String shelf) {
+        this(title, author, status, copies, publishedDate, genre, isbn, edition, pages, floor, shelf);
         this.id = id;
     }
     
@@ -62,7 +60,7 @@ public class Book {
     public String getPages() { return pages; }
     public String getDescription() { return description; }
     public boolean getStatus() { return status; }
-    public String getCopies() { return copies; }
+    public int getCopies() { return copies; }
     public String getFloor() { return floor; }
     public String getShelf() { return shelf; }
     public byte[] getBookCover() { return bookCover; }
@@ -77,7 +75,7 @@ public class Book {
     public void setPages(String pages) { this.pages = pages; }
     public void setDescription(String description) { this.description = description; }
     public void setStatus(boolean status) { this.status = status; }
-    public void setCopies(String copies) { this.copies = copies; }
+    public void setCopies(int copies) { this.copies = copies; }
     public void setFloor(String floor) { this.floor = floor; }
     public void setShelf(String shelf) { this.shelf = shelf; }
     public void setBookCover(byte[] bookCover) { this.bookCover = bookCover; }

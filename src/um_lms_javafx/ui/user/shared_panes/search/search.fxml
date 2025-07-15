@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.search.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/buttons.css" />
@@ -62,16 +62,17 @@
                 <TableView fx:id="booksTableView" editable="true" fixedCellSize="100.0" prefHeight="562.0" prefWidth="750.0" styleClass="modern-table">
                     <columns>
                         <TableColumn fx:id="idColumn" prefWidth="68.0" text="ID" />
-                  <TableColumn fx:id="genreColumn1" prefWidth="53.0" text="Copies" />
-                  <TableColumn fx:id="genreColumn211" prefWidth="94.0" text="Status" />
-                        <TableColumn fx:id="titleColumn" prefWidth="330.0" text="Title" />
-                        <TableColumn fx:id="authorColumn" prefWidth="146.0" text="Author" />
+                        <TableColumn fx:id="titleColumn" prefWidth="185.0" text="Title" />
+                        <TableColumn fx:id="authorColumn" prefWidth="264.0" text="Author" />
+                  <TableColumn fx:id="statusColumn" prefWidth="92.0" text="Status" />
+                  <TableColumn fx:id="copiesColumn" prefWidth="82.0" text="Copies" />
                         <TableColumn fx:id="publishedDateColumn" prefWidth="160.0" text="Published Date" />
                         <TableColumn fx:id="genreColumn" prefWidth="150.0" text="Genre" />
-                  <TableColumn fx:id="genreColumn2" prefWidth="150.0" text="ISBN" />
-                  <TableColumn fx:id="genreColumn21" prefWidth="150.0" text="Edition" />
-                  <TableColumn fx:id="genreColumn212" prefWidth="150.0" text="Floor" />
-                  <TableColumn fx:id="genreColumn2121" prefWidth="150.0" text="Shelf" />
+                  <TableColumn fx:id="isbnColumn" prefWidth="150.0" text="ISBN" />
+                  <TableColumn fx:id="editionColumn" prefWidth="150.0" text="Edition" />
+                  <TableColumn fx:id="pagesColumn" prefWidth="150.0" text="Pages" />
+                  <TableColumn fx:id="floorColumn" prefWidth="150.0" text="Floor" />
+                  <TableColumn fx:id="shelfColumn" prefWidth="150.0" text="Shelf" />
                     </columns>
                     <VBox.margin>
                         <Insets />

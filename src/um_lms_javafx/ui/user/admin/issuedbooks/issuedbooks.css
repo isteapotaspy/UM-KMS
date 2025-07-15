@@ -1,8 +1,44 @@
-/*
- * Empty Stylesheet file.
- */
+
 
 .mainFxmlClass {
 
 }
 
+.modern-tab-pane {
+    -fx-background-color: rgba(240, 234, 214, 1);
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-height: 35px;
+}
+
+.modern-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+
+.modern-tab-pane .tab {
+    -fx-background-insets: 0;
+    -fx-padding: 8px;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-font-family: "Nunito";
+    -fx-font-weight: 600;
+}
+
+.modern-tab-pane .tab:hover {
+    -fx-background-color: #eb4b98;
+}
+
+.modern-tab-pane .tab:selected {
+    -fx-background-color: #02394A;
+}
+
+.modern-tab-pane .tab-label {
+    -fx-text-fill: #02394A;
+}
+
+.modern-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+     -fx-font-weight: bold;
+}
