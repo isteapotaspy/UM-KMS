@@ -33,15 +33,15 @@ public class UserDAO<T extends User> {
     }
     
     // READ (OR RATHER, SEARCH) SPECIFIC USERS
-    public void searchUserByFirstName() {
+    public void getUserByFirstName() {
         
     }
     
-    public void searchUserByLastName() {
+    public void getUserByLastName() {
         
     }
     
-    public void searchUserByName() {
+    public void getUserByName() {
         
     }
 }

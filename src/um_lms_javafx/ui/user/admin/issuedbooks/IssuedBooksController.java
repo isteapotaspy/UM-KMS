@@ -5,8 +5,18 @@
 package um_lms_javafx.ui.user.admin.issuedbooks;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import um_lms_javafx.server.model.book.Book;
+import um_lms_javafx.server.model.borrower.Borrower;
+import um_lms_javafx.server.model.user.Student;
 
 /**
  * FXML Controller class
@@ -14,13 +24,54 @@ import javafx.fxml.Initializable;
  * @author jeanv
  */
 public class IssuedBooksController implements Initializable {
+    
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML private TableView<Borrower> issuedBooksTableView;
+    @FXML private TableColumn<Borrower, String> idColumn;
+    // GET BORROWER NAME!!!! huhuhuhu this is so misnamed, will fix later
+    @FXML private TableColumn<Borrower, String> titleColumn;
+    @FXML private TableColumn<Borrower, String> borrowerNameColumn;
+    @FXML private TableColumn<Borrower, LocalDateTime> dateIssuedColumn;
+    @FXML private TableColumn<Borrower, String> returnDeadlineColumn;
+    
+    final private ObservableList<Borrower> borrowerList = FXCollections.observableArrayList();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Bind columns to Borrowers View
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("borrowerID"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
+        borrowerNameColumn.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        dateIssuedColumn.setCellValueFactory(new PropertyValueFactory<>("dateIssued"));
+        returnDeadlineColumn.setCellValueFactory(new PropertyValueFactory<>("returnDeadline"));
+        
+        issuedBooksTableView.setItems(borrowerList);
+        
+        Student quandale = new Student("Quandale", "A.", "Dingle", "skibidi@gmail.com", "096969696969");
+        Book quanMillzBook = new Book(
+            "I Caught My Baby Daddy Cheating With My Grandma At Waffle House And Now I'm Raising Our Triplets Alone",
+            "QuanMillz",
+            LocalDateTime.of(2021, 9, 14, 0, 0),
+            "Urban Fiction",
+            "9780000000001",
+            "Deluxe Street Edition",
+            "472",
+            false,               // Not currently available
+            "12",
+            "Basement",
+            "Drama-Section-A1"
+        );
+
+        
+        addBorrower(1, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+        addBorrower(2, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+        addBorrower(3, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+        addBorrower(4, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+        addBorrower(5, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
     }    
+    
+    public void addBorrower(int borrowerID, Student student, Book book, LocalDateTime dateIssued) {
+        borrowerList.add(new Borrower(borrowerID, student, book, dateIssued));
+    }
     
 }

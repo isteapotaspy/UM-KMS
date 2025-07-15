@@ -22,8 +22,7 @@ import javafx.scene.media.MediaView;
  *
  * @author Ravin
  */
-public class LoginLayoutController implements Initializable {
-    
+public class LoginLayoutController implements Initializable {    
     @FXML
     Pane authenticationPane;
     
@@ -35,11 +34,9 @@ public class LoginLayoutController implements Initializable {
     // THIS IS ONCE INITIALIZED and handles ALL OF THE PANE SWITCHING ON THIS ENTIRE FRAME
     PaneSwitch authenticationSwitcher = new PaneSwitch();
     
-    // REVIEW THIS SPECIFIC CODE
-    private LoginLayoutController parentController;
-    // IMPORTS FOR MEDIAVIEW
-
-    
+    Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
+    Pane signupPage  = authenticationSwitcher.getPage("/um_lms_javafx/ui/signup/signup.fxml");
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // FOR VIDEO
@@ -55,27 +52,31 @@ public class LoginLayoutController implements Initializable {
         }
         
         // FOR PANE SWITCHING
-        Pane newPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
-       
+        String loginPath = "/um_lms_javafx/ui/login/login.fxml";
+        String signupPath = "/um_lms_javafx/ui/signup/signupfxml";
+        
+        // FOR DEBUGGING PURPOSES, MAKE THIS INTO A TRY-CATCH EXCEPTION LATER ON
         URL fxmlPath = getClass().getResource("/um_lms_javafx/ui/login/login.fxml");
         System.out.println(fxmlPath);
-
         
-        if (newPage != null) {
-            authenticationPane.getChildren().setAll(newPage);
+        if (loginPage != null) {
+            authenticationPane.getChildren().setAll(loginPage);
         } else {
             System.out.println("Login pane is null. Check the FXML path.");
         }
     }    
     
     @FXML
-    private void handleSwitchToSignUp(ActionEvent e) {
-        if(parentController != null) {
-           //parentController.getPage("/um_lms_javafx/ui/signup/signup.fxml");
+    public void handleSwitchToSignup() {
+        if(signupPage != null) {
+            authenticationPane.getChildren().setAll(signupPage);
         }
     }
     
-    public void setParentController(LoginLayoutController controller) {
-        this.parentController = controller;
+    @FXML
+    public void handleSwitchToLogin() {
+    if(loginPage != null) {
+            authenticationPane.getChildren().setAll(loginPage);
+        }
     }
 }

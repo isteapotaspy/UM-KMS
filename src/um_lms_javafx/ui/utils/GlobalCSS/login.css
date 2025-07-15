@@ -4,7 +4,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 
 .loginPane {
-    -fx-background-color: rgba(128, 0, 0,0.9);
+    -fx-background-color: rgba(2, 57, 74, 1);
     -fx-background-radius: 12;
     -fx-background-insets: 12;
+}
+
+#loginPane * {
+    -fx-font-family: "Nunito";
 }

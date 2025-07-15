@@ -53,7 +53,7 @@ public class SearchController implements Initializable {
     }    
     
     public void addBook(String id,String title, String author, String publishedDate, String genre) {
-    bookList.add(new FakeBook(id, title, author, publishedDate, genre));
-}
+        bookList.add(new FakeBook(id, title, author, publishedDate, genre));
+    }
     
 }

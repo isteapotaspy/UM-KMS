@@ -1,52 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.issuedbooks.IssuedBooksController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.issuedbooks.IssuedBooksController">
     <stylesheets>
         <URL value="@issuedbooks.css" />
+        <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/tables.css" />
     </stylesheets>
    <children>
       <TabPane fx:id="tabbedPane" prefWidth="750.0" style="-fx-background-color: 043565;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Issued Books">
+          <Tab fx:id="borrowerColumn" text="Issued Books">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="750.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="750.0">
                      <children>
-                        <TableView fx:id="issuedBooksTableView" layoutX="25.0" layoutY="80.0" prefHeight="470.0" prefWidth="703.0">
-                          <columns>
-                            <TableColumn prefWidth="89.0" text="ID" />
-                            <TableColumn prefWidth="167.0" text="Title" />
-                              <TableColumn prefWidth="173.0" text="Borrower" />
-                              <TableColumn prefWidth="141.0" text="Date Issued" />
-                              <TableColumn prefWidth="132.0" text="Expiry Date" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="30.0" layoutY="44.0" text="TABLEVIEW!!!! TO BE EDITED &amp; DESIGNED (TO MODERN LOOK KAY I-HARD CODE SYA" />
+                        <VBox prefHeight="571.0" prefWidth="753.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="705.0" spacing="24.0">
+                                 <children>
+                                    <Label alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="177.0" text="Issued Books">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="25.0" prefWidth="298.0">
+                                       <HBox.margin>
+                                          <Insets left="36.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <MenuButton fx:id="searchBookMenuButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" styleClass="menuButton label" text="Search Book">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Search ID" />
+                                          <MenuItem mnemonicParsing="false" text="Search Title" />
+                                          <MenuItem mnemonicParsing="false" text="Search Author" />
+                                          <MenuItem mnemonicParsing="false" text="Search Category" />
+                                          <MenuItem mnemonicParsing="false" text="Search Year" />
+                                       </items>
+                                    </MenuButton>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="issuedBooksTableView" prefHeight="534.0" prefWidth="705.0" styleClass="modern-table">
+                                <columns>
+                                  <TableColumn fx:id="idColumn" prefWidth="89.0" text="ID" />
+                                  <TableColumn fx:id="titleColumn" prefWidth="167.0" text="Title" />
+                                    <TableColumn fx:id="borrowerNameColumn" prefWidth="173.0" text="BorrowerName" />
+                                    <TableColumn fx:id="dateIssuedColumn" prefWidth="141.0" text="Date Issued" />
+                                    <TableColumn fx:id="returnDeadlineColumn" prefWidth="132.0" text="Return Deadline" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets top="12.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+                           </padding>
+                        </VBox>
                      </children></AnchorPane>
             </content>
           </Tab>
           <Tab text="Returned Books">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="585.0" prefWidth="750.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="750.0">
                      <children>
-                        <TableView fx:id="returnedBooksTableView" layoutX="25.0" layoutY="80.0" prefHeight="506.0" prefWidth="703.0">
-                           <columns>
-                              <TableColumn prefWidth="89.0" text="ID" />
-                              <TableColumn prefWidth="110.0" text="Title" />
-                              <TableColumn prefWidth="99.0" text="Borrower" />
-                              <TableColumn prefWidth="128.0" text="Date Issued" />
-                              <TableColumn prefWidth="140.0" text="Expiry Date" />
-                              <TableColumn prefWidth="136.0" text="Date Returned" />
-                           </columns>
-                        </TableView>
+                        <VBox prefHeight="571.0" prefWidth="753.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="705.0" spacing="24.0">
+                                 <children>
+                                    <Label alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="177.0" text="Returned Books">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="25.0" prefWidth="298.0">
+                                       <HBox.margin>
+                                          <Insets left="36.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <MenuButton fx:id="searchBookMenuButton1" mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" styleClass="menuButton label" text="Search Book">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Search ID" />
+                                          <MenuItem mnemonicParsing="false" text="Search Title" />
+                                          <MenuItem mnemonicParsing="false" text="Search Author" />
+                                          <MenuItem mnemonicParsing="false" text="Search Category" />
+                                          <MenuItem mnemonicParsing="false" text="Search Year" />
+                                       </items>
+                                    </MenuButton>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="issuedBooksTableView1" prefHeight="534.0" prefWidth="705.0" styleClass="modern-table">
+                                 <columns>
+                                    <TableColumn fx:id="idColumn1" prefWidth="89.0" text="ID" />
+                                    <TableColumn fx:id="titleColumn1" prefWidth="167.0" text="Title" />
+                                    <TableColumn fx:id="borrowerNameColumn1" prefWidth="173.0" text="BorrowerName" />
+                                    <TableColumn fx:id="dateIssuedColumn1" prefWidth="141.0" text="Date Issued" />
+                                    <TableColumn fx:id="returnDeadlineColumn1" prefWidth="132.0" text="Return Deadline" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets top="12.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+                           </padding>
+                        </VBox>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -54,8 +125,48 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="issueRequestsListView" layoutX="24.0" layoutY="90.0" prefHeight="471.0" prefWidth="703.0" />
-                        <Label layoutX="47.0" layoutY="44.0" text="LISTVIEW!!!! TO BE EDITED &amp; DESIGNED" />
+                        <VBox prefHeight="571.0" prefWidth="753.0">
+                           <children>
+                              <HBox prefHeight="17.0" prefWidth="705.0" spacing="24.0">
+                                 <children>
+                                    <Label alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="177.0" text="Issue Requests">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField prefHeight="25.0" prefWidth="298.0">
+                                       <HBox.margin>
+                                          <Insets left="36.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <MenuButton fx:id="searchBookMenuButton11" mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" styleClass="menuButton label" text="Search requests">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Search ID" />
+                                          <MenuItem mnemonicParsing="false" text="Search Title" />
+                                          <MenuItem mnemonicParsing="false" text="Search Author" />
+                                          <MenuItem mnemonicParsing="false" text="Search Category" />
+                                          <MenuItem mnemonicParsing="false" text="Search Year" />
+                                       </items>
+                                    </MenuButton>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="issuedBooksTableView11" prefHeight="534.0" prefWidth="705.0" styleClass="modern-table">
+                                 <columns>
+                                    <TableColumn fx:id="idColumn11" prefWidth="89.0" text="ID" />
+                                    <TableColumn fx:id="titleColumn11" prefWidth="167.0" text="Title" />
+                                    <TableColumn fx:id="borrowerNameColumn11" prefWidth="173.0" text="BorrowerName" />
+                                    <TableColumn fx:id="dateIssuedColumn11" prefWidth="141.0" text="Date Issued" />
+                                    <TableColumn fx:id="returnDeadlineColumn11" prefWidth="132.0" text="Return Deadline" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets top="12.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="12.0" left="24.0" right="24.0" top="12.0" />
+                           </padding>
+                        </VBox>
                      </children></AnchorPane>
                </content>
             </Tab>

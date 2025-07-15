@@ -17,6 +17,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="login" prefHeight="500.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.login.LoginController">
     <stylesheets>
+        <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/buttons.css" />
         <URL value="@login.css" />
     </stylesheets>
    <children>
@@ -84,14 +85,17 @@
                   </VBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonActionPerformed" text="Login" />
-                        <Button fx:id="adminButton" mnemonicParsing="false" onAction="#adminButtonActionPerformed" text=" Admin" />
+                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonActionPerformed" styleClass="genericButton" text="Login" />
+                        <Button fx:id="adminButton" mnemonicParsing="false" onAction="#adminButtonActionPerformed" styleClass="genericButton" text=" Admin" />
                      </children>
                      <VBox.margin>
                         <Insets top="12.0" />
                      </VBox.margin>
                   </HBox>
-                  <Hyperlink fx:id="linkToSignUp" alignment="CENTER" prefHeight="23.0" prefWidth="405.0" text="Don't have an account? Sign up now." textFill="WHITE" />
+                  <Hyperlink fx:id="switchToSignup" alignment="CENTER" onAction="#triggerSwitchToSignup" onMouseClicked="#triggerSwitchToSignup" prefHeight="23.0" prefWidth="404.0" text="Don't have an account? Sign up now." textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="24.0" right="24.0" />
+                     </VBox.margin></Hyperlink>
                </children>
                <padding>
                   <Insets top="24.0" />

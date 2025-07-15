@@ -17,45 +17,46 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.pages.profile.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.profile.ProfileController">
     <stylesheets>
+        <URL value="@um_lms_javafx/ui/utils/GlobalCSS/buttons.css" />
         <URL value="@profile.css" />
     </stylesheets>
    <children>
       <VBox layoutX="38.0" layoutY="323.0" prefHeight="200.0" prefWidth="180.0" spacing="12.0">
          <children>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Change profile picture">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Change profile picture">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../assets/admin/users.png" />
+                        <Image url="@../../../../assets/buttons/profile_picture.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Edit information">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Edit information">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/buttons/update_info.png" />
+                        <Image url="@../../../../assets/buttons/update_info.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Update information">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Update information">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/buttons/save_info.png" />
+                        <Image url="@../../../../assets/buttons/save_info.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Delete account">
+            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Delete account">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../assets/buttons/delete_account.png" />
+                        <Image url="@../../../../assets/buttons/delete_account.png" />
                      </image>
                   </ImageView>
                </graphic>

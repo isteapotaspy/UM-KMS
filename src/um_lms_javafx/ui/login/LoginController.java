@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package um_lms_javafx.ui.login;
+import um_lms_javafx.ui.LoginLayoutController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,14 +16,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
+    
     @FXML
     Button loginButton;
+    
     @FXML
     Button adminButton;
     
+    @FXML 
+    Hyperlink switchToSignup;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -50,5 +57,7 @@ public class LoginController implements Initializable {
         stage.show();
     }
     
-    
+    @FXML
+    public void triggerSwitchToSignup() throws IOException {
+    }
 }
