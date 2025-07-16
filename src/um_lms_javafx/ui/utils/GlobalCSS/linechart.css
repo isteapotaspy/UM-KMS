@@ -1,0 +1,51 @@
+
+.modern-line-chart {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.modern-line-chart .chart.plot-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* grid lines */
+.modern-line-chart .chart.horizontal-lines, 
+.modern-line-chart .chart-vertical-lines {
+    -fx-stroke: #eeeeee;
+}
+
+.modern-line-chart .axis {
+    -fx-tick-label-fill: #888888;
+    -fx-tick-length: 0;
+}
+
+.modern-line-chart .axis .axis-label {
+    -fx-text-fill: #555555;
+    -fx-font-weight: bold;
+}
+
+/* series lines */
+.modern-line-chart .default-color0.chart-series-line {
+    -fx-stroke: #eb4b98;
+    -fx-stroke-width: 3px;
+    -fx-effect: dropshadow(gaussian, #4A90E255, 10, 0.3, 0, 4);
+}
+
+/* points */
+.modern-line-chart .default-color0.chart-line-symbol {
+    -fx-background-color: white, #eb4b98;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 7px;
+    -fx-padding: 5px;
+}
+
+/* legend */
+.modern-line-chart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.modern-line-chart .chart-legend-item-symbol {
+    -fx-background-radius: 7px;
+}

@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.popups.borrowbook.BorrowbookController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.popups.borrowbook.BorrowbookController">
     <stylesheets>
         <URL value="@borrowbook.css" />
     </stylesheets>
@@ -58,14 +59,14 @@
                         <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="35.0" prefHeight="96.0" prefWidth="101.0" text="Copies" GridPane.rowIndex="1" />
                         <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="96.0" prefWidth="101.0" text="Floor" GridPane.rowIndex="2" />
                         <Label alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="35.0" prefHeight="96.0" prefWidth="101.0" text="Shelf" GridPane.rowIndex="3" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" text="AVAILABLE" GridPane.columnIndex="1">
+                        <TextField fx:id="statusField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
                         </TextField>
-                        <TextField layoutX="71.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" text="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField layoutX="71.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField layoutX="71.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" text="12F-5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="copiesField" layoutX="71.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="floorField" layoutX="71.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="shelfField" layoutX="71.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </children>
@@ -105,23 +106,23 @@
                         <Label alignment="TOP_LEFT" prefHeight="46.0" prefWidth="49.0" text="Author(s)" GridPane.rowIndex="2" />
                         <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="66.0" prefWidth="32.0" text="Pages" GridPane.rowIndex="7" />
                         <Label alignment="TOP_LEFT" layoutX="66.0" layoutY="134.0" prefHeight="51.0" prefWidth="26.0" text="ISBN" GridPane.rowIndex="4" />
-                        <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="110.0" prefHeight="50.0" prefWidth="79.0" text="Publication Date" GridPane.rowIndex="3" />
+                        <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="110.0" prefHeight="24.0" prefWidth="97.0" text="Publication Date" GridPane.rowIndex="3" />
                         <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="110.0" prefHeight="61.0" prefWidth="37.0" text="Edition" GridPane.rowIndex="6" />
                         <Label alignment="TOP_LEFT" layoutX="76.0" layoutY="134.0" prefHeight="39.0" prefWidth="32.0" text="Genre" GridPane.rowIndex="5" />
                         <Label alignment="TOP_LEFT" prefHeight="37.0" prefWidth="81.0" text="Library Book ID" />
                         <Label layoutX="22.0" layoutY="182.0" GridPane.rowIndex="8" />
                         <Label alignment="TOP_LEFT" prefHeight="96.0" prefWidth="101.0" text="Description" GridPane.rowIndex="8" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="13127158" GridPane.columnIndex="1" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="Never Ending Sky" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="Joseph Kirkland" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="libraryBookIDField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="titleField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="authorField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="March 8, 2023" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="9781234567890" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="Fiction; Adventure" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="publishedDateField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="isbnField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="genreField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" text="15" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <TextField alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="250.0" text="Beneath a sky that seems to stretch forever, one soul embarks on a journey of discovery, resilience, and hope. Never Ending Sky is a moving tale about finding light in the darkest places and meaning in unexpected moments. Through shifting landscapes—both emotional and physical—the story follows a character chasing dreams, confronting past shadows, and learning that sometimes, the sky isn’t the limit—it’s just the beginning. Poetic, heartfelt, and deeply human, this novel explores the boundless nature of healing, love, and the endless possibilities that life can offer." GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField fx:id="editionField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="pagesField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="descriptionField" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                      </children>
                   </GridPane>
                </children>
@@ -131,5 +132,6 @@
             </VBox>
          </children>
       </HBox>
+      <Button fx:id="requestIssueButton" layoutX="482.0" layoutY="23.0" mnemonicParsing="false" text="Request Issue" />
    </children>
 </AnchorPane>

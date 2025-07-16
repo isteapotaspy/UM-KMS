@@ -21,7 +21,7 @@
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/tables.css" />
     </stylesheets>
    <children>
-      <TabPane fx:id="tabbedPane" prefWidth="750.0" style="-fx-background-color: 043565;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabbedPane" prefWidth="750.0" style="-fx-background-color: 043565;" tabClosingPolicy="UNAVAILABLE" styleClass="modern-tab-pane">
         <tabs>
           <Tab fx:id="borrowerColumn" text="Issued Books">
             <content>
