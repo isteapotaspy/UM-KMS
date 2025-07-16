@@ -59,10 +59,10 @@
                   <Insets bottom="12.0" top="6.0" />
                </padding>
                 </HBox>
-                <TableView fx:id="booksTableView" editable="true" fixedCellSize="100.0" prefHeight="562.0" prefWidth="750.0" styleClass="modern-table">
+                <TableView fx:id="booksTableView" editable="true" fixedCellSize="100.0" onMouseClicked="#handleTableViewClick" prefHeight="562.0" prefWidth="750.0" styleClass="modern-table">
                     <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="68.0" text="ID" />
-                        <TableColumn fx:id="titleColumn" prefWidth="185.0" text="Title" />
+                        <TableColumn fx:id="idColumn" prefWidth="90.0" text="ID" />
+                        <TableColumn fx:id="titleColumn" prefWidth="141.0" text="Title" />
                         <TableColumn fx:id="authorColumn" prefWidth="264.0" text="Author" />
                   <TableColumn fx:id="statusColumn" prefWidth="92.0" text="Status" />
                   <TableColumn fx:id="copiesColumn" prefWidth="82.0" text="Copies" />

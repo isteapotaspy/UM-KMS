@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.history.HistoryController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.history.HistoryController">
     <stylesheets>
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/tables.css" />
         <URL value="@history.css" />
@@ -46,8 +46,12 @@
             </HBox>
             <TableView maxWidth="-Infinity" prefHeight="591.0" prefWidth="702.0" styleClass="modern-table">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="borrowIDColumn" prefWidth="107.0" text="Borrow ID" />
+                <TableColumn fx:id="returnStatusColumn" prefWidth="98.0" text="Return Status" />
+                  <TableColumn fx:id="studentIDColumn" prefWidth="122.0" text="Student ID" />
+                  <TableColumn fx:id="bookIDColumn" prefWidth="129.0" text="Book ID" />
+                  <TableColumn fx:id="issuedDateColumn" prefWidth="126.0" text="Issued Date" />
+                  <TableColumn fx:id="returnedDateColumn" prefWidth="119.0" text="Returned Date" />
               </columns>
             </TableView>
          </children>

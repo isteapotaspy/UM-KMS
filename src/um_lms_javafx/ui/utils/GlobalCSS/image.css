@@ -1,0 +1,7 @@
+
+.clickable-image {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+}
