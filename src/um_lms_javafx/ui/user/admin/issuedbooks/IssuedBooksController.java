@@ -6,6 +6,7 @@ package um_lms_javafx.ui.user.admin.issuedbooks;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,26 +48,26 @@ public class IssuedBooksController implements Initializable {
         
         issuedBooksTableView.setItems(borrowerList);
         
-        Student quandale = new Student("Quandale", "A.", "Dingle", "skibidi@gmail.com", "096969696969", "Skibidi");
-        Book quanMillzBook = new Book(
-            "I Caught My Baby Daddy Cheating With My Grandma At Waffle House And Now I'm Raising Our Triplets Alone",
-            "QuanMillz",
-            false, 12,
-            LocalDateTime.of(2021, 9, 14, 0, 0), 
-            "Urban Fiction",
-            "9780000000001",
-            "Deluxe Street Edition",
-            "472",            
-            "Basement",
-            "Drama-Section-A1"
-        );
+      //  Student quandale = new Student("Quandale", "A.", "Dingle", "skibidi@gmail.com", "096969696969", "Skibidi");
+      //  Book quanMillzBook = new Book(
+      //      "I Caught My Baby Daddy Cheating With My Grandma At Waffle House And Now I'm Raising Our Triplets Alone",
+      //      "QuanMillz",
+      //      false, 12,
+       //     Date.of(2021, 9, 14, 0, 0), 
+      //      "Urban Fiction",
+      //      "9780000000001",
+      //      "Deluxe Street Edition",
+      //      "472",            
+      //      "Basement",
+      //      "Drama-Section-A1"
+      //  );
 
-        
-        addBorrower(1, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
-        addBorrower(2, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
-        addBorrower(3, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
-        addBorrower(4, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
-        addBorrower(5, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+      //  
+      //  addBorrower(1, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+      //  addBorrower(2, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+      //  addBorrower(3, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+      //  addBorrower(4, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
+      //  addBorrower(5, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
     }    
     
     public void addBorrower(int borrowerID, Student student, Book book, LocalDateTime dateIssued) {

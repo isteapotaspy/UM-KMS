@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
@@ -16,6 +17,11 @@ public class UM_LMS_JavaFX extends Application {
         
     @Override
     public void start(Stage stage) throws Exception {
+        
+        Font.loadFont(getClass().getResourceAsStream("/um_lms_javafx/assets/fonts/Nunito/static/Nunito-Regular.ttf"), 12);
+        Font.loadFont(getClass().getResourceAsStream("/um_lms_javafx/assets/fonts/Nunito/static/Nunito-Bold.ttf"), 12);
+        Font.loadFont(getClass().getResourceAsStream("/um_lms_javafx/assets/fonts/Montserrat/static/Montserrat-Regular.ttf"), 12);
+        
         Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/LoginLayout.fxml"));
         
         Scene scene = new Scene(root);

@@ -6,7 +6,7 @@ package um_lms_javafx.ui.user.shared_panes.search;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,11 +17,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import um_lms_javafx.server.model.book.Book;
 import um_lms_javafx.ui.user.popups.borrowbook.BorrowbookController;
+import um_lms_javafx.server.DAO.DBBookDAO;
 
 /**
  * FXML Controller class
@@ -36,7 +38,7 @@ public class SearchController implements Initializable {
     @FXML private TableColumn<Book, String> authorColumn;
     @FXML private TableColumn<Book, Boolean> statusColumn;
     @FXML private TableColumn<Book, Integer> copiesColumn;
-    @FXML private TableColumn<Book, LocalDateTime> publishedDateColumn;
+    @FXML private TableColumn<Book, Date> publishedDateColumn;
     @FXML private TableColumn<Book, String> genreColumn;
     @FXML private TableColumn<Book, String> isbnColumn;
     @FXML private TableColumn<Book, String> editionColumn;   
@@ -49,7 +51,6 @@ public class SearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Bind columns to Book properties
-        
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id")); // id -> getId()
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title")); // getTitle()
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
@@ -64,17 +65,12 @@ public class SearchController implements Initializable {
         shelfColumn.setCellValueFactory(new PropertyValueFactory<>("shelf"));
 
         // Set data to TableView
-        booksTableView.setItems(bookList);
+        refreshTable();
         
-        //SETTING VALUE - FAKE ONLY
-        addBook(1, "Harry Potter", "JK Rowling", true, 10, LocalDateTime.of(2021, 9, 14, 0, 0), "Fiction", "010902012", "First", "2000", "1st", "12");
-        addBook(2, "Harry Potter", "JK Rowling", true, 10, LocalDateTime.of(2021, 9, 14, 0, 0), "Fiction", "010902012", "First", "2000", "1st", "12");
-        addBook(3, "Harry Potter", "JK Rowling", true, 10, LocalDateTime.of(2021, 9, 14, 0, 0), "Fiction", "010902012", "First", "2000", "1st", "12");
-        
-
-        //IF DOUBLE CLICKED, THE POPUP WILL POPOUT HEHE WHAT
-        booksTableView.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2 && !booksTableView.getSelectionModel().isEmpty()) {
+    }
+    
+    public void handleTableViewClick(MouseEvent event) {
+        if (event.getClickCount() == 2 && !booksTableView.getSelectionModel().isEmpty()) {
                 Book selectedBook = booksTableView.getSelectionModel().getSelectedItem();
                 if (selectedBook != null) {
                     try {
@@ -94,11 +90,10 @@ public class SearchController implements Initializable {
                     }
                 }
             }
-        });
-    }
-
-    public void addBook(int id, String title, String author, boolean status, int copies, LocalDateTime publishedDate, String genre , String isbn, String edition, String pages, String floor, String shelf) {
-        bookList.add(new Book(id, title, author, status, copies, publishedDate, genre, isbn, edition, pages, floor, shelf));
+        };
+    
+    public void refreshTable() {
+        booksTableView.setItems(DBBookDAO.loadBooks());
     }
 
 }

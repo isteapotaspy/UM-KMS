@@ -4,7 +4,7 @@
  */
 package um_lms_javafx.server.model.book;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -15,11 +15,11 @@ public class Book {
     private int id;
     private String title;
     private String author;
-    private LocalDateTime publishedDate;
+    private Date publishedDate;
     private String genre; //LIST TO BE MADE, THIS IS JUST AN EXAMPLE
     private String isbn;
-    private String edition;
-    private String pages;
+    private int edition;
+    private int pages;
     private String description;
 
     public boolean status; //isAvailable or not
@@ -30,7 +30,8 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, String author, boolean status, int copies, LocalDateTime publishedDate, String genre, String isbn, String edition, String pages, String floor, String shelf) {
+    public Book(String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+            int copies, String floor, String shelf) {
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
@@ -44,20 +45,27 @@ public class Book {
         this.shelf = shelf;
     }
 
-    public Book(int id, String title, String author, boolean status, int copies, LocalDateTime publishedDate, String genre, String isbn, String edition, String pages, String floor, String shelf) {
-        this(title, author, status, copies, publishedDate, genre, isbn, edition, pages, floor, shelf);
+    public Book(int id, String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+            int copies, String floor, String shelf) {
+        this(title, author, publishedDate, genre, isbn, edition, pages, description, status, copies, floor, shelf);
         this.id = id;
+    }
+    
+    public Book(byte[] bookCover, int id, String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+            int copies, String floor, String shelf) {
+        this(id, title, author, publishedDate, genre, isbn, edition, pages, description, status, copies, floor, shelf);
+        this.bookCover = bookCover;
     }
     
     //GETTERS
     public int getId() { return id; }
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
-    public LocalDateTime getPublishedDate() { return publishedDate; }
+    public Date getPublishedDate() { return publishedDate; }
     public String getGenre() { return genre; }
     public String getIsbn() { return isbn; }
-    public String getEdition() { return edition; }
-    public String getPages() { return pages; }
+    public int getEdition() { return edition; }
+    public int getPages() { return pages; }
     public String getDescription() { return description; }
     public boolean getStatus() { return status; }
     public int getCopies() { return copies; }
@@ -66,13 +74,14 @@ public class Book {
     public byte[] getBookCover() { return bookCover; }
     
     //SETTERS
+    public void setId(int id) { this.id = id; }
     public void setTitle(String title) { this.title = title; }
     public void setAuthor(String author) { this.author = author; }
-    public void setPublishedDate(LocalDateTime publishedDate) { this.publishedDate = publishedDate; }
+    public void setPublishedDate(Date publishedDate) { this.publishedDate = publishedDate; }
     public void setGenre(String genre) { this.genre = genre; }
     public void setIsbn(String isbn) { this.isbn = isbn; }
-    public void setEdition(String edition) { this.edition = edition; }
-    public void setPages(String pages) { this.pages = pages; }
+    public void setEdition(int edition) { this.edition = edition; }
+    public void setPages(int pages) { this.pages = pages; }
     public void setDescription(String description) { this.description = description; }
     public void setStatus(boolean status) { this.status = status; }
     public void setCopies(int copies) { this.copies = copies; }
