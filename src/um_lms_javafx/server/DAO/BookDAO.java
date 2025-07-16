@@ -109,3 +109,11 @@ public class BookDAO {
     
     
 }
+
+class InputSizeException extends Exception {
+    public InputSizeException(int maxInput, int inputSize, String dataType) {
+        System.out.println("[EXCEPTION - Input Size Error] User put " + inputSize + " in an " + dataType + " field that can only accomodate " + maxInput);
+    }
+}
+
+class BookCRUDException extends Exception {}

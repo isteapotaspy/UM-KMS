@@ -25,11 +25,12 @@ public abstract class User {
     private String password;
     protected boolean adminAccess;
     
-    public User(String firstName, String middleName, String lastName, String email, String phoneNumber) {
+    public User(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         
+        this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
         
@@ -44,10 +45,12 @@ public abstract class User {
     public void setPassword(String password) {  } // ALWAYS HASH THIS SHIT SO THAT IT ISN'T EXPOSED
     public void setProfilePicture(byte[] profilePicture) { this.profilePicture = profilePicture; }
    
-    public String getFirstName() {return firstName; }
-    public String getMiddleName() {return middleName; }
+    public int getStudentID() { return studentID; }
+    public String getFirstName() { return firstName; }
+    public String getMiddleName() { return middleName; }
     public String getLastName() { return lastName; }
     public String getEmail() { return email; }
+    public String getPassword() { return password; }
     public String getPhoneNumber() { return phoneNumber; }
     public byte[] getProfilePicture() { return profilePicture; } 
     public boolean getAdminAccess() { return adminAccess; }

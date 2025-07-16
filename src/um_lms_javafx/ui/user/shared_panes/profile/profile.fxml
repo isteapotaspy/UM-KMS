@@ -17,163 +17,173 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.shared_panes.profile.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="um_lms_javafx.ui.user.shared_panes.profile.ProfileController">
     <stylesheets>
         <URL value="@um_lms_javafx/ui/utils/GlobalCSS/buttons.css" />
         <URL value="@profile.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="38.0" layoutY="323.0" prefHeight="200.0" prefWidth="180.0" spacing="12.0">
+      <VBox prefHeight="622.0" prefWidth="753.0">
          <children>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Change profile picture">
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/buttons/profile_picture.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Edit information">
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/buttons/update_info.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Update information">
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/buttons/save_info.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Delete account">
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../assets/buttons/delete_account.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-         <padding>
-            <Insets top="12.0" />
-         </padding>
-      </VBox>
-      <Label layoutX="38.0" layoutY="46.0" text="Library Profile">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <HBox layoutX="2.0" layoutY="86.0" prefHeight="204.0" prefWidth="750.0">
-         <children>
-            <ImageView fitHeight="213.0" fitWidth="180.0" pickOnBounds="true" smooth="false">
-               <image>
-                  <Image url="@../../../../assets/student/glowup.jpg" />
-               </image>
-            </ImageView>
-            <HBox prefHeight="180.0" prefWidth="522.0">
-               <HBox.margin>
-                  <Insets left="36.0" />
-               </HBox.margin>
+            <Label text="Library Profile">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="180.0" prefWidth="338.0">
+                  <VBox prefHeight="200.0" prefWidth="180.0" spacing="12.0">
                      <children>
-                        <Label text="Basic Information">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane hgap="24.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="151.0" prefWidth="313.0" vgap="5.0" VBox.vgrow="ALWAYS">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="RIGHT" maxWidth="116.0" minWidth="-Infinity" prefWidth="103.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                            <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="First Name" />
-                              <Label layoutX="19.0" layoutY="45.0" text="Middle Name" GridPane.rowIndex="1" />
-                              <Label text="Last Name" GridPane.rowIndex="2" />
-                              <Label text="Email" GridPane.rowIndex="3" />
-                              <Label text="Phone Number" GridPane.rowIndex="4" />
-                              <TextField prefHeight="30.0" prefWidth="178.0" GridPane.columnIndex="1" />
-                              <TextField layoutX="115.0" layoutY="7.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField layoutX="115.0" layoutY="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField layoutX="115.0" layoutY="64.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField layoutX="121.0" layoutY="97.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                           </children>
-                        </GridPane>
+                        <ImageView fitHeight="213.0" fitWidth="180.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@../../../../assets/student/glowup.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Change profile picture">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../assets/buttons/profile_picture.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Edit information">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../assets/buttons/update_info.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="78.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Update information">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../assets/buttons/save_info.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="10.0" layoutY="134.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" styleClass="genericButton" text="Delete account">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../assets/buttons/delete_account.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets top="12.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="180.0" prefWidth="522.0">
+                           <children>
+                              <VBox prefHeight="180.0" prefWidth="338.0">
+                                 <children>
+                                    <Label text="Basic Information">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="12.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <GridPane hgap="24.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="151.0" prefWidth="313.0" vgap="5.0" VBox.vgrow="ALWAYS">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" maxWidth="116.0" minWidth="-Infinity" prefWidth="103.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                          <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                        <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                          <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                          <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="First Name" />
+                                          <Label layoutX="19.0" layoutY="45.0" text="Middle Name" GridPane.rowIndex="1" />
+                                          <Label text="Last Name" GridPane.rowIndex="2" />
+                                          <Label text="Email" GridPane.rowIndex="3" />
+                                          <Label text="Phone Number" GridPane.rowIndex="4" />
+                                          <TextField prefHeight="30.0" prefWidth="178.0" GridPane.columnIndex="1" />
+                                          <TextField layoutX="115.0" layoutY="7.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField layoutX="115.0" layoutY="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField layoutX="115.0" layoutY="64.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField layoutX="121.0" layoutY="97.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="164.0" prefWidth="402.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Student Information">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="You currently have admin status." textFill="RED">
+                                       <padding>
+                                          <Insets left="12.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <GridPane hgap="24.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="123.0" prefWidth="333.0" vgap="5.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                    <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Department" GridPane.rowIndex="1" />
+                                    <Label layoutX="19.0" layoutY="45.0" text="Course" GridPane.rowIndex="2" />
+                                    <Label text="Year" GridPane.rowIndex="3" />
+                                    <Label layoutX="32.0" layoutY="49.0" text="ID Number" />
+                                    <TextField GridPane.columnIndex="1" />
+                                    <ChoiceBox prefHeight="25.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ChoiceBox prefHeight="25.0" prefWidth="249.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="12.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets top="24.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="24.0" top="24.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
          </children>
          <padding>
-            <Insets left="36.0" top="24.0" />
-         </padding>
-      </HBox>
-      <VBox layoutX="265.0" layoutY="353.0" prefHeight="164.0" prefWidth="402.0">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label text="Student Information">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label text="You currently have admin status." textFill="RED">
-                     <padding>
-                        <Insets left="12.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <GridPane hgap="24.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="123.0" prefWidth="333.0" vgap="5.0">
-               <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="240.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                  <RowConstraints fillHeight="false" maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                  <RowConstraints fillHeight="false" maxHeight="24.0" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" vgrow="NEVER" />
-               </rowConstraints>
-               <children>
-                  <Label text="Department" GridPane.rowIndex="1" />
-                  <Label layoutX="19.0" layoutY="45.0" text="Course" GridPane.rowIndex="2" />
-                  <Label text="Year" GridPane.rowIndex="3" />
-                  <Label layoutX="32.0" layoutY="49.0" text="ID Number" />
-                  <TextField GridPane.columnIndex="1" />
-                  <ChoiceBox prefHeight="25.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ChoiceBox prefHeight="25.0" prefWidth="249.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox prefHeight="25.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-               </children>
-               <padding>
-                  <Insets top="12.0" />
-               </padding>
-            </GridPane>
-         </children>
-         <padding>
-            <Insets top="24.0" />
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
          </padding>
       </VBox>
    </children>

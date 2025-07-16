@@ -59,7 +59,7 @@ public class StudentLayoutController implements Initializable {
     }
     
     public void handleProfileButtonClicked() {
-        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/pages/profile/profile.fxml");
+        Pane newPage = switcher.getPage("/um_lms_javafx/ui/user/shared_panes/profile/profile.fxml");
         dynamicPane.getChildren().setAll(newPage);
     }
     public void handleSettingsButtonClicked() {}

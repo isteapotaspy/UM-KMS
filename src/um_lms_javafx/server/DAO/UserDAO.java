@@ -14,6 +14,10 @@ interface UserFactory<T extends User> {
 }
 
 public class UserDAO<T extends User> {    
+    // USER FROM THE CURRENT SESSION
+    private T user;
+    private boolean signedIn = false;
+    
     // USERLIST SHOULD REFER TO THE ENTIRE DATABASE LATER ON
     private List<T> userList = new ArrayList<>();
     private UserFactory<T> factory;
@@ -24,8 +28,22 @@ public class UserDAO<T extends User> {
         userList.add(user);
     }
     
-    // AUTHENTICATE A USER
-    
+    // AUTHENTICATE CURRENT USER
+    public boolean authenticateUser(String email, String password) {
+        for(T user : userList) {
+            if ((user.getEmail().equals(email)) && (user.getPassword().equals(password))) {
+                signedIn = true;
+                return true;
+            }}  return false;
+    }
+    // DEAUTHENTICATE CURRENT USER
+    public void deauthenticateUser() {
+        signedIn = false;
+    }
+    // GRAB ADMIN STATUS IF IT EXISTS FROM CURRENT USER
+    public boolean getAdminStatus(T user) {
+        return user.getAdminAccess();
+    }
     
     // READ ALL USERS
     public List<T> getAllUsers() {
@@ -33,17 +51,39 @@ public class UserDAO<T extends User> {
     }
     
     // READ (OR RATHER, SEARCH) SPECIFIC USERS
-    public void getUserByFirstName() {
-        
+    public T getUserByFirstName(String firstName) {
+        for(T user : userList) {
+            if(user.getFirstName().equals(firstName)){ return user; }
+        } return null;        
+    }
+    public T getUserByLastName(String lastName) {
+        for(T user : userList) {
+            if(user.getLastName().equals(lastName)){ return user; }
+        } return null;       
+    }   
+    public T getUserByID(int studentID) {
+        for(T user : userList) {
+            if(user.getStudentID() == studentID){ return user; }
+        } return null;       
     }
     
-    public void getUserByLastName() {
-        
-    }
-    
-    public void getUserByName() {
-        
+    // DELETE USER
+    public void deleteUser(int studentID) {
+        for(T user : userList) {
+            // CORRECT THIS COMMAND LATER
+            if(user.getStudentID() == studentID){ userList.remove(user); }
+        } 
     }
 }
 
-class AuthenticationError extends Exception {}
+class AuthenticationError extends Exception {
+    public AuthenticationError(String error) {
+        System.out.println("[EXCEPTION - Authentication Error] User has incorrect email or password credentials upon Signup");
+    }
+    
+    public void deauthenticationError() {}
+    public void incorrectCredentialsError() {}
+    public void undeletableCredentialsError() {}
+}
+
+class UserCRUD extends Exception {}
