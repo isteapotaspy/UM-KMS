@@ -3,13 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package um_lms_javafx.ui;
-    
-import java.io.File;
+
 import um_lms_javafx.ui.utils.LogicUI.PaneSwitch;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
@@ -33,9 +31,6 @@ public class LoginLayoutController implements Initializable {
     // check out the code in PaneSwitch.java in students folder
     // THIS IS ONCE INITIALIZED and handles ALL OF THE PANE SWITCHING ON THIS ENTIRE FRAME
     PaneSwitch authenticationSwitcher = new PaneSwitch();
-    
-    Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
-    Pane signupPage  = authenticationSwitcher.getPage("/um_lms_javafx/ui/signup/signup.fxml");
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,32 +46,19 @@ public class LoginLayoutController implements Initializable {
             System.out.println("Video file not found!");
         }
         
-        // FOR PANE SWITCHING
-        String loginPath = "/um_lms_javafx/ui/login/login.fxml";
-        String signupPath = "/um_lms_javafx/ui/signup/signupfxml";
-        
-        // FOR DEBUGGING PURPOSES, MAKE THIS INTO A TRY-CATCH EXCEPTION LATER ON
-        URL fxmlPath = getClass().getResource("/um_lms_javafx/ui/login/login.fxml");
-        System.out.println(fxmlPath);
-        
-        if (loginPage != null) {
-            authenticationPane.getChildren().setAll(loginPage);
-        } else {
-            System.out.println("Login pane is null. Check the FXML path.");
-        }
+        Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
+        authenticationPane.getChildren().setAll(loginPage);
     }    
     
     @FXML
     public void handleSwitchToSignup() {
-        if(signupPage != null) {
-            authenticationPane.getChildren().setAll(signupPage);
-        }
+        Pane signupPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/signup/signup.fxml");
+        authenticationPane.getChildren().setAll(signupPage);
     }
     
     @FXML
     public void handleSwitchToLogin() {
-    if(loginPage != null) {
-            authenticationPane.getChildren().setAll(loginPage);
-        }
+        Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
+        authenticationPane.getChildren().setAll(loginPage);
     }
 }

@@ -8,10 +8,9 @@ package um_lms_javafx.server.model.user;
  *
  * @author Ravin
  */
-final public class Admin extends User{
-    
-    public Admin(String firstName, String middleName, String lastName, String email, String phoneNumber) {
-        super(firstName, middleName, lastName, email, phoneNumber);
+final public class Admin extends User{    
+    public Admin(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
+        super(firstName, middleName, lastName, email, phoneNumber, password);
         this.adminAccess = true;    
     }
 }

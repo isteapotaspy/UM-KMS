@@ -25,7 +25,7 @@ public abstract class User {
     private String password;
     protected boolean adminAccess;
     
-    public User(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
+    public User(String firstName, String middleName, String lastName,String email, String phoneNumber, String password) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -45,7 +45,6 @@ public abstract class User {
     public void setPassword(String password) {  } // ALWAYS HASH THIS SHIT SO THAT IT ISN'T EXPOSED
     public void setProfilePicture(byte[] profilePicture) { this.profilePicture = profilePicture; }
    
-    public int getStudentID() { return studentID; }
     public String getFirstName() { return firstName; }
     public String getMiddleName() { return middleName; }
     public String getLastName() { return lastName; }

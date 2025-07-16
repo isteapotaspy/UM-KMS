@@ -47,7 +47,7 @@ public class IssuedBooksController implements Initializable {
         
         issuedBooksTableView.setItems(borrowerList);
         
-        Student quandale = new Student("Quandale", "A.", "Dingle", "skibidi@gmail.com", "096969696969");
+        Student quandale = new Student("Quandale", "A.", "Dingle", "skibidi@gmail.com", "096969696969", "Skibidi");
         Book quanMillzBook = new Book(
             "I Caught My Baby Daddy Cheating With My Grandma At Waffle House And Now I'm Raising Our Triplets Alone",
             "QuanMillz",

@@ -3,7 +3,6 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -12,7 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.login.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="400.0" styleClass="mainFxmlClass" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="um_lms_javafx.ui.login.LoginController">
     <stylesheets>
         <URL value="@login.css" />
     </stylesheets>
@@ -115,7 +116,6 @@
                <VBox.margin>
                   <Insets top="24.0" />
                </VBox.margin></Button>
-            <Hyperlink alignment="CENTER" prefHeight="23.0" prefWidth="363.0" text="Already have an account? Log in." />
          </children>
          <padding>
             <Insets left="24.0" right="24.0" top="24.0" />

@@ -63,7 +63,7 @@ public class UserDAO<T extends User> {
     }   
     public T getUserByID(int studentID) {
         for(T user : userList) {
-            if(user.getStudentID() == studentID){ return user; }
+            //if(user.getStudentID() == studentID){ return user; }
         } return null;       
     }
     
@@ -71,7 +71,7 @@ public class UserDAO<T extends User> {
     public void deleteUser(int studentID) {
         for(T user : userList) {
             // CORRECT THIS COMMAND LATER
-            if(user.getStudentID() == studentID){ userList.remove(user); }
+            //if(user.getStudentID() == studentID){ userList.remove(user); }
         } 
     }
 }

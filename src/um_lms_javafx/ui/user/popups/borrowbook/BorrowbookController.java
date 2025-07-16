@@ -36,6 +36,7 @@ public class BorrowbookController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
+    
     public void setBookDetails(Book book) {
         libraryBookIDField.setText(String.valueOf(book.getId()));
         titleField.setText(book.getTitle());

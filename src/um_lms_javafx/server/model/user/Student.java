@@ -14,8 +14,8 @@ final public class Student extends User {
     private String program;
     
     
-    public Student(String firstName, String middleName, String lastName, String email, String phoneNumber) {
-        super(firstName, middleName, lastName, email, phoneNumber);
+    public Student(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
+        super(firstName, middleName, lastName, email, phoneNumber, password);
         this.adminAccess = false;
     }
     

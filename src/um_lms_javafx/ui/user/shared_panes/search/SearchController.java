@@ -21,7 +21,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import um_lms_javafx.server.model.book.Book;
-import um_lms_javafx.server.model.book.FakeBook;
 import um_lms_javafx.ui.user.popups.borrowbook.BorrowbookController;
 
 /**
@@ -50,8 +49,9 @@ public class SearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Bind columns to Book properties
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id")); // id -> getId()
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title")); // getTitle()
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         copiesColumn.setCellValueFactory(new PropertyValueFactory<>("copies"));
