@@ -21,8 +21,10 @@ final public class Student extends User {
     public void setStudentID(int studentID) { this.studentID = studentID; }
     public void setDepartment(String department) { this.department = department; }
     public void setProgram(String program) { this.program = program; }
+    public void setAdminAccess(boolean adminAccess) { this.adminAccess = adminAccess; }
     
     public int getStudentID() { return studentID; }
+    public boolean getAdminAccess() { return adminAccess; }
     public String getDepartment() { return department; }
     public String getProgram() { return program; }
 }

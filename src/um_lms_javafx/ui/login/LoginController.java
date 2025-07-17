@@ -15,49 +15,80 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import um_lms_javafx.server.DAO.AuthenticationState;
+import um_lms_javafx.server.DAO.DBStudentDAO;
 
 public class LoginController implements Initializable {
     
-    @FXML
-    Button loginButton;
+    @FXML TextField emailTextField;
+    @FXML PasswordField passwordTextField;
+    @FXML Label errorText;
     
-    @FXML
-    Button adminButton;
+    @FXML Button loginButton;
+    @FXML Button adminButton;    
+    @FXML Hyperlink switchToSignup;
     
-    @FXML 
-    Hyperlink switchToSignup;
-   
+    DBStudentDAO authenticator = new DBStudentDAO();
+    AuthenticationState authState;
+    String email, password;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
     @FXML
-    public void loginButtonActionPerformed(ActionEvent e) throws IOException {
-        // NOTE: This is the code on how to change the stage (similar to JFrame) to another one
-        // Use relative pathing to make sure you grab the correct .fxml
-        // Just copy paste this code, there's no need to modify anything here except the path
-
-        Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/student/StudentLayout.fxml"));
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void loginButtonActionPerformed(ActionEvent e) throws IOException {       
+        email = emailTextField.getText();
+        password = passwordTextField.getText();
+        
+        if(email.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Email field is empty.");
+        } else if (password.isBlank()) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Password field is empty.");
+        } else {
+            authState = authenticator.authenticateUser(email, password);
+            switch(authState) {
+                case(AuthenticationState.NO_USER_EXISTS) -> {
+                    showAlert(Alert.AlertType.ERROR, "Error", "No such user exists in the database.");
+                    break;
+                }
+                case(AuthenticationState.INCORRECT_PASSWORD) -> {
+                    showAlert(Alert.AlertType.ERROR, "Error", "The entered password is incorrect.");
+                    break;
+                }
+                case(AuthenticationState.STUDENT_ACCESS_GRANTED) -> {
+                    Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/student/StudentLayout.fxml"));
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                    break;
+                }
+                case(AuthenticationState.ADMIN_ACCESS_GRANTED) -> {
+                    Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/admin/AdminLayout.fxml"));
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                    break;
+                }
+            }
+        }  
     }
     
-    @FXML
-    public void adminButtonActionPerformed(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/admin/AdminLayout.fxml"));
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    @FXML
-    public void triggerSwitchToSignup() throws IOException {
+    public void showAlert(Alert.AlertType type, String title, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

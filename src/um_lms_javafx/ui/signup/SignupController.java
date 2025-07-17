@@ -31,7 +31,12 @@ public class SignupController implements Initializable {
 
     private String password;
     private String confirmPassword;
-    String passwordRegexValidation = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+{}\\[\\]:;\"'<>,.?/~`|\\\\-]).{8,}$";
+    private String passwordRegexValidation = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+{}\\[\\]:;\"'<>,.?/~`|\\\\-]).{8,}$";
+    private String emailRegexValidation = "^[a-zA-Z0-9._%+-]+@umindanao\\.edu\\.ph$";
+    private String phoneRegexValidation = "^\\d{12}$";
+    private String studentIDRegexValidation = "^\\d{6}$";
+
+    
     Student student;
     
     @Override
@@ -44,8 +49,19 @@ public class SignupController implements Initializable {
         password = passwordField.getText();
         confirmPassword = confirmPasswordField.getText();
         
-        // CHECK PASSWORD
-        if (password == null || confirmPassword == null || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (studentIDField == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Student ID is required for registration.");
+        } // then search for all studentID if it matches to make sure that there's no collision at all
+        
+        if (firstNameField == null|| middleNameField == null || 
+            lastNameField == null || phoneNumberField == null ||
+            emailField == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Passwords do not match.");
+        } else if (!emailField.getText().matches(emailRegexValidation)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please enter a valid institutional email ending in '@umindanao.edu.ph'.");
+        } else if (!phoneNumberField.getText().matches(phoneRegexValidation)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Please enter a valid 12-digit Philipine phone number. ");
+        } else if (password == null || confirmPassword == null || password.isEmpty() || confirmPassword.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Error", "Please fill in both password fields.");
         } else if (!password.matches(passwordRegexValidation)) {
             showAlert(Alert.AlertType.ERROR, "Error", "Password must be at least 8 characters long and include an uppercase letter, a number, and a special character.");
@@ -62,16 +78,17 @@ public class SignupController implements Initializable {
             );
             
             student.setStudentID(Integer.parseInt(studentIDField.getText()));
+            
             System.out.println("Signup success!");
             System.out.println(student.getFirstName());
             System.out.println(student.getPassword());
-            showAlert(Alert.AlertType.INFORMATION, "Success", "Account created successfully!");
+            
             
             boolean success = studentDAO.insertStudent(student);
             
             if (success) {
                 //clearForm();
-                showAlert(Alert.AlertType.INFORMATION, "Book Added", "Book was added successfully!");
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Account created successfully!");
             } else {
                 showAlert(Alert.AlertType.ERROR, "Error", "Failed to add the book.");
             }

@@ -43,30 +43,44 @@ public class DBStudentDAO {
    }
    
 //   // READ
-//   public Student findStudentByEmail(String email) {
-//        String sql = "SELECT FROM `library_books` WHERE email = ?";
-//        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-//            stmt.setInt(1, email);
-//            try (ResultSet rs = stmt.executeQuery()) {
-//                if (rs.next()) {
-//                    return new Book(
-//                            rs.getBytes("bookCover"),
-//                            rs.getInt("id"),
-//                            rs.getString("title"),
-//                            rs.getString("author"),
-//                            rs.getDate("publishedDate"),
-//                            rs.getString("genre"),
-//                            rs.getString("isbn"),
-//                            rs.getInt("edition"),
-//                            rs.getInt("pages"),
-//                            rs.getString("description"),
-//                            rs.getBoolean("status"),    
-//                            rs.getInt("copies"),
-//                            rs.getString("floor"),
-//                            rs.getString("shelf")
-//                    );
-//                }
-//            }
-//        }
-//   }
+    public Student findStudentByEmail(String email) {
+        String sql = "SELECT * FROM `library_users` WHERE email = ?";
+        try (Connection conn = DBConnection.getConnection(); 
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+        
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            Student student = new Student(
+                    rs.getString("first name"),
+                    rs.getString("middle name"),
+                    rs.getString("last name"),
+                    rs.getString("email"),
+                    rs.getString("phone number"),
+                    rs.getString("password")
+            );
+            student.setStudentID(rs.getInt("user id"));
+            student.setAdminAccess(rs.getBoolean("admin access"));
+
+            return student;
+        }
+    } catch (SQLException e) {
+            e.printStackTrace(); // You might want to log this properly
+        } return null;
+    }
+    
+    
+    public AuthenticationState authenticateUser(String email, String password) {
+        Student student = findStudentByEmail(email);
+        if (student == null) {
+            return AuthenticationState.NO_USER_EXISTS;
+        }
+        if (!student.getPassword().equals(password)) {
+            return AuthenticationState.INCORRECT_PASSWORD;
+        }
+        if(student.getAdminAccess()){
+            return AuthenticationState.ADMIN_ACCESS_GRANTED;
+        } else return AuthenticationState.STUDENT_ACCESS_GRANTED;    
+    }
 }
