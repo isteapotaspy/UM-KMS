@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import um_lms_javafx.server.DAO.DBConnection;
+
 
 
 public class UM_LMS_JavaFX extends Application {
@@ -26,8 +28,8 @@ public class UM_LMS_JavaFX extends Application {
         
         Scene scene = new Scene(root);
         
-        stage.getIcons().add(new Image(getClass().getResource("/um_lms_javafx/assets/um_logo_window.png").toString()));
-        stage.setTitle("University of Mindanao Library Management System");
+        stage.getIcons().add(new Image(getClass().getResource("/um_lms_javafx/assets/sigmawolf_window.png").toString()));
+        stage.setTitle("SigmaWolf Library Management System");
         stage.setScene(scene);
         stage.show();
     }
@@ -38,6 +40,7 @@ public class UM_LMS_JavaFX extends Application {
     
     // NOTE TO SELF: Do NOT declare a random ass event without a handler because it will BUG the shit out
     public static void main(String[] args) {
+        DBConnection.testConnection();
         launch(args);
     }
     

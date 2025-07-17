@@ -17,3 +17,19 @@
 #testMain:hover {
     -fx-background-color: linear-gradient(to right, orange, red);
 }
+
+
+#linkPane {
+    -fx-background-color: rgba(2, 57, 74, 0.6);
+    -fx-background-radius: 6;
+    -fx-background-inset: 6;
+    
+}
+
+.linkFromLogin {
+    -fx-text-fill: #eb4b98;
+}
+
+.linkFromSignup {
+    -fx-text-fill: #f26df9;
+}

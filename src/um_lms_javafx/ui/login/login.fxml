@@ -22,24 +22,27 @@
    <children>
       <Pane layoutX="2.0" layoutY="4.0" prefHeight="450.0" prefWidth="400.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="130.0" prefWidth="400.0">
+            <VBox alignment="TOP_CENTER" prefHeight="188.0" prefWidth="400.0">
                <children>
-                  <ImageView fitHeight="114.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="179.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../assets/um_logo.png" />
+                        <Image url="@../../assets/sigmawolf_logo.png" />
                      </image>
                      <VBox.margin>
-                        <Insets top="36.0" />
+                        <Insets bottom="-48.0" top="36.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Label text="Library Management System" textFill="WHITE">
+                  <Label prefHeight="24.0" prefWidth="270.0" text="Management System" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Elephant" size="20.5" />
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets top="-36.0" />
+               </padding>
             </VBox>
-            <VBox layoutY="161.0" prefHeight="230.0" prefWidth="400.0">
+            <VBox layoutY="161.0" prefHeight="230.0" prefWidth="400.0" spacing="12.0">
                <children>
                   <VBox prefHeight="46.0" prefWidth="292.0">
                      <children>
@@ -57,8 +60,11 @@
                            </VBox.margin></TextField>
                      </children>
                      <padding>
-                        <Insets left="24.0" right="24.0" />
+                        <Insets left="36.0" right="36.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets left="12.0" right="12.0" />
+                     </VBox.margin>
                   </VBox>
                   <VBox prefHeight="46.0" prefWidth="292.0">
                      <children>
@@ -79,8 +85,11 @@
                         <Insets top="12.0" />
                      </opaqueInsets>
                      <padding>
-                        <Insets left="24.0" right="24.0" />
+                        <Insets left="36.0" right="36.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets left="12.0" right="12.0" />
+                     </VBox.margin>
                   </VBox>
                   <HBox alignment="CENTER">
                      <children>

@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author jeanv
  */
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/lms?useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/um_lms_javafx?zeroDateTimeBehavior=CONVERT_TO_NULL";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
@@ -22,11 +22,24 @@ public class DBConnection {
     }
     
     static {
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // CATCH IF IT DOESN'T WORK
+    public static void testConnection() {
+        try (Connection conn = getConnection()) {
+            if (conn != null && !conn.isClosed()) {
+                System.out.println("✅ Connection successful!");
+            } else {
+                System.out.println("❌ Connection failed.");
+            }
+        } catch (SQLException e) {
+            System.out.println("❌ SQL Error: " + e.getMessage());
+        }
     }
 }
-
-}
+    

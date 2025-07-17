@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,6 +22,10 @@ import javafx.scene.media.MediaView;
  * @author Ravin
  */
 public class LoginLayoutController implements Initializable {    
+    
+    @FXML
+    Hyperlink switchToSignup;
+    
     @FXML
     Pane authenticationPane;
     
@@ -31,6 +36,7 @@ public class LoginLayoutController implements Initializable {
     // check out the code in PaneSwitch.java in students folder
     // THIS IS ONCE INITIALIZED and handles ALL OF THE PANE SWITCHING ON THIS ENTIRE FRAME
     PaneSwitch authenticationSwitcher = new PaneSwitch();
+    private boolean paneOnLogin = true;
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,19 +52,30 @@ public class LoginLayoutController implements Initializable {
             System.out.println("Video file not found!");
         }
         
+        switchToSignup.getStyleClass().add("linkFromLogin");
         Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
         authenticationPane.getChildren().setAll(loginPage);
     }    
     
     @FXML
-    public void handleSwitchToSignup() {
-        Pane signupPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/signup/signup.fxml");
-        authenticationPane.getChildren().setAll(signupPage);
-    }
-    
-    @FXML
-    public void handleSwitchToLogin() {
-        Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
-        authenticationPane.getChildren().setAll(loginPage);
+    public void handleLoginSwitch() {
+        if(paneOnLogin == false){
+            
+            Pane signupPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/signup/signup.fxml");
+            authenticationPane.getChildren().setAll(signupPage);
+            
+            switchToSignup.getStyleClass().remove("linkFromLogin");
+            switchToSignup.getStyleClass().add("linkFromSignup");
+            switchToSignup.setText("Already have an account? Login now.");
+            paneOnLogin = true;
+        } else if (paneOnLogin == true) {
+            Pane loginPage = authenticationSwitcher.getPage("/um_lms_javafx/ui/login/login.fxml");
+            authenticationPane.getChildren().setAll(loginPage);
+            switchToSignup.setText("Don't have an account? Sign up now.");
+            
+            switchToSignup.getStyleClass().remove("linkFromSignup");
+            switchToSignup.getStyleClass().add("linkFromLogin");
+            paneOnLogin = false;
+        }
     }
 }

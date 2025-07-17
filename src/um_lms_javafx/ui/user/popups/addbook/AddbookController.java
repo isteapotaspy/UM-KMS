@@ -129,7 +129,7 @@ public class AddbookController implements Initializable {
                 }
             }
             if (book.getBookCover() == null) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Book cover is required.");
+                showAlert(Alert.AlertType.ERROR, "Error", "Book cover is required.");
                 return;
             }
         }

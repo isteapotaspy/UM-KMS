@@ -14,7 +14,6 @@ interface UserFactory<T extends User> {
 }
 
 public class UserDAO<T extends User> {    
-    // USER FROM THE CURRENT SESSION
     private T user;
     private boolean signedIn = false;
     
@@ -78,7 +77,7 @@ public class UserDAO<T extends User> {
 
 class AuthenticationError extends Exception {
     public AuthenticationError(String error) {
-        System.out.println("[EXCEPTION - Authentication Error] User has incorrect email or password credentials upon Signup");
+        System.out.println("[EXCEPTION - General Authentication Error] User has incorrect email or password credentials upon Signup");
     }
     
     public void deauthenticationError() {}
