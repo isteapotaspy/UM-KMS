@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package um_lms_javafx.ui.user.popups.addbook;
+package um_lms_javafx.ui.user.popups.editbook;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -21,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import um_lms_javafx.server.DAO.DBBookDAO;
 import um_lms_javafx.server.model.book.Book;
 
@@ -29,9 +29,9 @@ import um_lms_javafx.server.model.book.Book;
  *
  * @author jeanv
  */
+public class EditbookController implements Initializable {
 
-public class AddbookController implements Initializable {
-
+    @FXML private Button updateBookButton;
     @FXML
     private ImageView bookCoverView;
     @FXML
@@ -62,51 +62,59 @@ public class AddbookController implements Initializable {
     private TextField floorField;
     @FXML
     private TextField shelfField;
-
-    private Book book = new Book();
-    private DBBookDAO modifyBook = new DBBookDAO();
-
+    
+    private Book book;
+    private DBBookDAO bookDAO;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
+    }    
+    
+    public void setBook(Book book, DBBookDAO bookDAO) {
+        this.book = book;
+        this.bookDAO = bookDAO;
+        
+        Image image = new Image(new ByteArrayInputStream(book.getBookCover()));
+        bookCoverView.setImage(image);
+        libraryBookIDField.setText(String.valueOf(book.getId()));
+        titleField.setText(book.getTitle());
+        authorField.setText(book.getAuthor());
+       publishedDatePicker.setValue(book.getPublishedDate());
+        isbnField.setText(book.getIsbn());
+        genreField.setText(book.getGenre());
+        editionField.setText(String.valueOf(book.getEdition()));
+        pagesField.setText(String.valueOf(book.getPages()));
+        descriptionField.setText(book.getDescription());
+        statusField.setText(book.getStatus() ? "Available" : "Not Available");
+        copiesField.setText(String.valueOf(book.getCopies()));
+        floorField.setText(book.getFloor());
+        shelfField.setText(book.getShelf());
     }
-
-    public void handleAddBookClick(ActionEvent event) {
-        try {
+    
+    public void handleUpdateButtonClick() {
+       
             book.setId(Integer.parseInt(libraryBookIDField.getText()));
             book.setTitle(titleField.getText());
             book.setAuthor(authorField.getText());
-            
-            if (publishedDatePicker.getValue() == null) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Published Date is required.");
-            return;
-            }
             book.setPublishedDate(publishedDatePicker.getValue());
             book.setIsbn(isbnField.getText());
             book.setGenre(genreField.getText());
             book.setEdition(Integer.parseInt(editionField.getText()));
             book.setPages(Integer.parseInt(pagesField.getText()));
             book.setDescription(descriptionField.getText());
-            // assuming status is text like "Available" or "Not Available"
+            // status returns true if "Available" is typed 
             book.setStatus(statusField.getText().equalsIgnoreCase("Available"));
             book.setCopies(Integer.parseInt(copiesField.getText()));
             book.setFloor(floorField.getText());
             book.setShelf(shelfField.getText());
 
-            boolean success = modifyBook.insertBook(book);
-            
-            if (success) {
-                clearForm();
-                showAlert(Alert.AlertType.INFORMATION, "Book Added", "Book was added successfully!");
-            } else {
-                showAlert(Alert.AlertType.ERROR, "Error", "Failed to add the book.");
+            boolean success = bookDAO.updateBook(book);
+                if (success) {
+                    ((Stage) titleField.getScene().getWindow()).close();
+                }
             }
-            
-        } catch (Exception e) {
-             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed: " + e.getMessage());
-            }
-        }
+    
 
     public void handleBookCoverClick(MouseEvent event) {
 
@@ -133,25 +141,6 @@ public class AddbookController implements Initializable {
             }
         }
     }
-
-    public void clearForm() { //CLEARS THE FIELDS AFTER ADDING
-        
-        bookCoverView.setImage(null);
-        libraryBookIDField.clear();
-        titleField.clear();
-        authorField.clear();
-        publishedDatePicker.setValue(null);
-        isbnField.clear();
-        genreField.clear();
-        editionField.clear();
-        pagesField.clear();
-        descriptionField.clear();
-        statusField.clear();
-        copiesField.clear();
-        floorField.clear();
-        shelfField.clear();
-        book = new Book();
-    }
     
     //POP UP SHOWING IF SUCCESSFULLLLLL OR NOT
     public void showAlert(Alert.AlertType type, String title, String content) {
@@ -161,5 +150,7 @@ public class AddbookController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
+        
+        
 }
+   

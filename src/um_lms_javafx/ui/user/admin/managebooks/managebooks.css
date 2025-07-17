@@ -5,3 +5,33 @@
 .mainFxmlClass {
 
 }
+
+.button-added {
+    -fx-font-family: "Nunito";
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 6 6 6 6;
+    -fx-alignment: CENTER;
+}
+
+
+.button.edit-button {
+    -fx-background-color: linear-gradient(to right, #4CAF50, #45A049);
+    -fx-alignment: CENTER;
+}
+
+
+.button.delete-button {
+    -fx-background-color: linear-gradient(to right, #F44336, #E53935);
+    -fx-alignment: CENTER;
+}
+
+.button.edit-button:hover {
+    -fx-background-color: linear-gradient(to right, #66BB6A, #57A95A);
+}
+
+.button.delete-button:hover {
+    -fx-background-color: linear-gradient(to right, #E57373, #EF5350);
+}

@@ -4,6 +4,7 @@
  */
 package um_lms_javafx.server.model.book;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class Book {
     private int id;
     private String title;
     private String author;
-    private Date publishedDate;
+    private LocalDate publishedDate;
     private String genre; //LIST TO BE MADE, THIS IS JUST AN EXAMPLE
     private String isbn;
     private int edition;
@@ -29,8 +30,14 @@ public class Book {
     private byte[] bookCover;
 
     public Book() {}
+    
+    public Book(String title, int id, int copies) {
+        this.title = title;
+        this.id = id;
+        this.copies = copies;
+    }
 
-    public Book(String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+    public Book(String title, String author, LocalDate publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
             int copies, String floor, String shelf) {
         this.title = title;
         this.author = author;
@@ -45,13 +52,13 @@ public class Book {
         this.shelf = shelf;
     }
 
-    public Book(int id, String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+    public Book(int id, String title, String author, LocalDate publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
             int copies, String floor, String shelf) {
         this(title, author, publishedDate, genre, isbn, edition, pages, description, status, copies, floor, shelf);
         this.id = id;
     }
     
-    public Book(byte[] bookCover, int id, String title, String author, Date publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
+    public Book(byte[] bookCover, int id, String title, String author, LocalDate publishedDate, String genre, String isbn, int edition, int pages, String description, boolean status, 
             int copies, String floor, String shelf) {
         this(id, title, author, publishedDate, genre, isbn, edition, pages, description, status, copies, floor, shelf);
         this.bookCover = bookCover;
@@ -61,7 +68,7 @@ public class Book {
     public int getId() { return id; }
     public String getTitle() { return title; }
     public String getAuthor() { return author; }
-    public Date getPublishedDate() { return publishedDate; }
+    public LocalDate getPublishedDate() { return publishedDate; }
     public String getGenre() { return genre; }
     public String getIsbn() { return isbn; }
     public int getEdition() { return edition; }
@@ -77,7 +84,7 @@ public class Book {
     public void setId(int id) { this.id = id; }
     public void setTitle(String title) { this.title = title; }
     public void setAuthor(String author) { this.author = author; }
-    public void setPublishedDate(Date publishedDate) { this.publishedDate = publishedDate; }
+    public void setPublishedDate(LocalDate publishedDate) { this.publishedDate = publishedDate; }
     public void setGenre(String genre) { this.genre = genre; }
     public void setIsbn(String isbn) { this.isbn = isbn; }
     public void setEdition(int edition) { this.edition = edition; }

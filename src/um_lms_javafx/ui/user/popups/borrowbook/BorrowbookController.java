@@ -53,7 +53,7 @@ public class BorrowbookController implements Initializable {
         editionField.setText(String.valueOf(book.getEdition()));
         pagesField.setText(String.valueOf(book.getPages()));
         descriptionField.setText(book.getDescription());
-        statusField.setText(String.valueOf(book.getStatus()));
+        statusField.setText(book.getStatus() ? "Available" : "Not Available");
         copiesField.setText(String.valueOf(book.getCopies()));
         floorField.setText(book.getFloor());
         shelfField.setText(book.getShelf());
