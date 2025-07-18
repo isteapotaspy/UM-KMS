@@ -15,17 +15,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="addBookPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.popups.addbook.AddbookController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="um_lms_javafx.ui.user.popups.editbook.EditbookController">
     <stylesheets>
-        <URL value="@addbook.css" />
-        <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/layout.css" />
-        <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/image.css" />
+        <URL value="@editbook.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="500.0" prefWidth="700.0" styleClass="mainPane" />
       <Pane layoutX="7.0" layoutY="8.0" prefHeight="482.0" prefWidth="684.0" styleClass="dynamicPane">
          <children>
-            <Label layoutX="7.0" layoutY="1.0" prefHeight="29.0" prefWidth="198.0" text="Add Book">
+            <Label layoutX="7.0" layoutY="1.0" prefHeight="29.0" prefWidth="198.0" text="Modify Book">
                <padding>
                   <Insets left="24.0" top="12.0" />
                </padding>
@@ -130,7 +128,7 @@
                   <Insets left="12.0" />
                </padding>
             </VBox>
-            <Button fx:id="addBookButton" layoutX="567.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleAddBookClick" text="Add Book" />
+            <Button fx:id="updateBookButton" layoutX="567.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleUpdateButtonClick" text="Update Book" />
             <Button fx:id="doneButton" layoutX="601.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Done" />
          </children>
       </Pane>

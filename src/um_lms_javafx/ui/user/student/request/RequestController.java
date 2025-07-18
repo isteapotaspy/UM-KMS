@@ -26,13 +26,14 @@ public class RequestController implements Initializable {
     
     @FXML
     Hyperlink borrowBook;
+    @FXML
+    Hyperlink returnBook;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }   
     
-    @FXML
     public void handleBorrowBookClick(){
         
         // THIS IS THE CODE TO CREATE A NEW PANE
@@ -48,4 +49,22 @@ public class RequestController implements Initializable {
             dialogStage.showAndWait(); // FORCE THE PARENT TO WAIT FOR MORE INPUT
         } catch(IOException e) { e.printStackTrace(); }
     }
+    
+    public void handleReturnBookClick(){
+        
+        // THIS IS THE CODE TO CREATE A NEW PANE
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/um_lms_javafx/ui/user/popups/borrowbook/borrowbook.fxml"));
+            // ignore this error, it will work regardless
+            Pane dialogRoot = loader.load();
+            
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.setResizable(false);
+            dialogStage.setScene(new Scene(dialogRoot));
+            dialogStage.showAndWait(); // FORCE THE PARENT TO WAIT FOR MORE INPUT
+        } catch(IOException e) { e.printStackTrace(); }
+    }
+   
+    
 }

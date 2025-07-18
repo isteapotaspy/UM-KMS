@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author jeanv
  */
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/um_lms_javafx?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    private static final String URL = "jdbc:mysql://localhost:3306/lms?zeroDateTimeBehavior=CONVERT_TO_NULL";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 

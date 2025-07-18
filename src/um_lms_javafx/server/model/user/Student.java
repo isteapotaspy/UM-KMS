@@ -12,7 +12,15 @@ final public class Student extends User {
     private int studentID;
     private String department;
     private String program;
-        
+    private int booksIssued;
+    public String name = getName();
+    
+    public Student(String firstName, String middleName, String lastName, int studentID, int booksIssued) {
+        super(firstName, middleName, lastName);
+        this.studentID = studentID;
+        this.booksIssued = booksIssued;
+    }
+ 
     public Student(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
         super(firstName, middleName, lastName, email, phoneNumber, password);
         this.adminAccess = false;
@@ -27,4 +35,11 @@ final public class Student extends User {
     public boolean getAdminAccess() { return adminAccess; }
     public String getDepartment() { return department; }
     public String getProgram() { return program; }
+    public int getBooksIssued() { return booksIssued; }
+    public void setBooksIssued(int booksIssued) { this.booksIssued = booksIssued; }
+    
+    public String getName() {
+        return String.format("%s %s %s", getFirstName(), getMiddleName(), getLastName()).trim().replaceAll(" +", " ");
+    }
+    
 }

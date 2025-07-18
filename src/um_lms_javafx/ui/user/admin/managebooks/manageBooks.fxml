@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.managebooks.ManageBooksController">
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="753.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.admin.managebooks.ManageBooksController">
     <stylesheets>
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/tables.css" />
         <URL value="@managebooks.css" />
@@ -39,13 +39,13 @@
             </HBox>
             <TableView fx:id="manageBooksTableView" editable="true" prefHeight="523.0" prefWidth="705.0" styleClass="modern-table">
               <columns>
-                <TableColumn prefWidth="57.0" text="ID" />
-                <TableColumn prefWidth="121.0" text="Title" />
-                  <TableColumn prefWidth="104.0" text="Author" />
-                  <TableColumn prefWidth="112.0" text="Published Date" />
-                  <TableColumn prefWidth="104.0" text="Category" />
-                  <TableColumn minWidth="0.0" text="Quantity" />
-                  <TableColumn prefWidth="130.0" text="Actions" />
+                <TableColumn fx:id="idColumn" prefWidth="57.0" text="ID" />
+                <TableColumn fx:id="titleColumn" prefWidth="121.0" text="Title" />
+                  <TableColumn fx:id="authorColumn" prefWidth="104.0" text="Author" />
+                  <TableColumn fx:id="publishedDateColumn" prefWidth="112.0" text="Published Date" />
+                  <TableColumn fx:id="genreColumn" prefWidth="104.0" text="Genre" />
+                  <TableColumn fx:id="copiesColumn" minWidth="0.0" text="Copies" />
+                  <TableColumn fx:id="actionsColumn" prefWidth="130.0" text="Actions" />
               </columns>
             </TableView>
          </children>

@@ -25,10 +25,16 @@ public abstract class User {
     private String password;
     protected boolean adminAccess;
     
-    public User(String firstName, String middleName, String lastName,String email, String phoneNumber, String password) {
+    public User(){}
+    
+    public User(String firstName, String middleName, String lastName) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
+    }
+    
+    public User(String firstName, String middleName, String lastName, String email, String phoneNumber, String password) {
+        this(firstName, middleName, lastName);
         
         this.password = password;
         this.email = email;
@@ -53,4 +59,5 @@ public abstract class User {
     public String getPhoneNumber() { return phoneNumber; }
     public byte[] getProfilePicture() { return profilePicture; } 
     public boolean getAdminAccess() { return adminAccess; }
+    
 }
