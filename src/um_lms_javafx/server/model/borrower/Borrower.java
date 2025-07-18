@@ -5,12 +5,16 @@
 package um_lms_javafx.server.model.borrower;
 
 import java.time.LocalDateTime;
+import um_lms_javafx.server.DAO.DBBorrowerDAO;
 import um_lms_javafx.server.model.user.Student;
 import um_lms_javafx.server.model.book.Book;
 
-public class Borrower {
+public final class Borrower {
+    DBBorrowerDAO borrowerDAO = new DBBorrowerDAO();
+    
     private int borrowerID;
-    private boolean returnStatus;
+    private String returnStatus;
+    private String bookStatus;
     
     private Student student;
     private Book book;
@@ -19,20 +23,21 @@ public class Borrower {
     // OR PROBABLY REMOVE THIS LATER
     private LocalDateTime returnDeadline;
     
-    public Borrower(int borrowerID, Student student, Book book, LocalDateTime dateIssued) {
-        this.returnStatus = false;
+    public Borrower(Student student, Book book, String bookStatus) {
         
-        this.borrowerID = borrowerID;
+        this.borrowerID = borrowerDAO.getTotalBorrowerHistoryRows();
         this.student = student;
         this.book = book;        
-        this.dateIssued = dateIssued;
+        this.dateIssued = LocalDateTime.now();
+        this.returnDeadline = getReturnDeadline();
+        this.returnStatus = bookStatus;
     }
     
     public void setStudentBorrower(Student student) { this.student = student; }
     public void setBookBorrowed(Book book) { this.book = book; }
-    public void setBorrowerStatus(boolean status) { this.returnStatus = status; }
+    public void setBorrowerStatus(String status) { this.returnStatus = status; }
     
-    public boolean getBorrowerStatus() { return returnStatus; }
+    public String getBorrowerStatus() { return returnStatus; }
     public Book getBook() { return book; }
     public int getBorrowerID() { return borrowerID; }
     public int getStudentID() { return student.getStudentID(); }
