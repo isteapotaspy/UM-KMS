@@ -6,6 +6,8 @@ package um_lms_javafx.ui.user.admin.studentsmanager;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +21,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import um_lms_javafx.server.model.user.FakeStudent;
+import um_lms_javafx.server.DAO.DBStudentDAO;
+import um_lms_javafx.server.model.user.Student;
 
 /**
  * FXML Controller class
@@ -28,38 +31,36 @@ import um_lms_javafx.server.model.user.FakeStudent;
  */
 public class StudentsmanagerController implements Initializable {
 
-    @FXML private TableView<FakeStudent> manageStudentsTableView;
-    @FXML private TableColumn<FakeStudent, Integer> idColumn;
-    @FXML private TableColumn<FakeStudent, String> nameColumn;
-    @FXML private TableColumn<FakeStudent, String> emailColumn;
-    @FXML private TableColumn<FakeStudent, String> dateJoinedColumn;
-    @FXML private TableColumn<FakeStudent, Integer> totalBooksIssuedColumn;
-    @FXML private TableColumn<FakeStudent, Integer> totalFinesColumn;
+    @FXML private TableView<Student> manageStudentsTableView;
+    @FXML private TableColumn<Student, Integer> idColumn;
+    @FXML private TableColumn<Student, String> nameColumn;
+    @FXML private TableColumn<Student, String> emailColumn;
+    @FXML private TableColumn<Student, LocalDateTime> dateJoinedColumn;
+    @FXML private TableColumn<Student, Integer> totalBooksIssuedColumn;
+    @FXML private TableColumn<Student, Integer> totalFinesColumn;
     
-    private ObservableList<FakeStudent> studentList = FXCollections.observableArrayList();
+    private ObservableList<Student> studentList = FXCollections.observableArrayList();
+    private DBStudentDAO studentDao = new DBStudentDAO();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
        idColumn.setCellValueFactory(new PropertyValueFactory<>("studentID"));
-       nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+       nameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
        emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
        dateJoinedColumn.setCellValueFactory(new PropertyValueFactory<>("dateJoined")); 
-       totalBooksIssuedColumn.setCellValueFactory(new PropertyValueFactory<>("totalBooksIssued"));
+       totalBooksIssuedColumn.setCellValueFactory(new PropertyValueFactory<>("booksIssued"));
        totalFinesColumn.setCellValueFactory(new PropertyValueFactory<>("totalFines"));
        
-       manageStudentsTableView.setItems(studentList);
+       manageStudentsTableView.setItems(studentDao.loadStudents());
        
-       addStudent(1, "Harry POtter", "harry@umidnanao.edu.ph", "March 13, 2025", 26, 0);
-       addStudent(2, "Harry POtter", "harry@umidnanao.edu.ph", "March 13, 2025", 26, 0);
-       addStudent(3, "Harry POtter", "harry@umidnanao.edu.ph", "March 13, 2025", 26, 0);
-       addStudent(4, "Harry POtter", "harry@umidnanao.edu.ph", "March 13, 2025", 26, 0);
+        
        
        
        //IF DOUBLE CLICKED
         manageStudentsTableView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2 && !manageStudentsTableView.getSelectionModel().isEmpty()) {
-                FakeStudent selectedStudent = manageStudentsTableView.getSelectionModel().getSelectedItem();
+                Student selectedStudent = manageStudentsTableView.getSelectionModel().getSelectedItem();
                 if (selectedStudent != null) {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/um_lms_javafx/ui/user/popups/selectedstudent/selectedstudent.fxml"));
@@ -78,8 +79,4 @@ public class StudentsmanagerController implements Initializable {
         });
        
     }    
-    
-    public void addStudent(int studentID, String name, String email, String dateJoined, int totalBooksIssued, int totalFines) {
-        studentList.add(new FakeStudent(studentID, name, email, dateJoined, totalBooksIssued, totalFines));
-    }
 }

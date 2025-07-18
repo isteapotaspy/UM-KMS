@@ -5,12 +5,15 @@
 package um_lms_javafx.server.DAO;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javafx.scene.control.TableView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
+import um_lms_javafx.server.DAO.DBConnection;
 import um_lms_javafx.server.model.book.Book;
 import um_lms_javafx.server.model.borrower.BorrowHistory;
 
@@ -192,7 +195,7 @@ public class DBBookDAO {
 
         //inserting into borrow history
         String borrowSQL = "INSERT INTO `borrow_history`(`status`, `student_id`, `book_id`, "
-                + "`issued_date`, expiry_date) VALUES ('Borrowed', ?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 3 DAY) ";
+                + "`issued_date`, `expiry_date`) VALUES ('Borrowed', ?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 3 DAY))";
 
         PreparedStatement stmtBorrow = conn.prepareStatement(borrowSQL);
         stmtBorrow.setInt(1, studentID);
@@ -245,11 +248,13 @@ public class DBBookDAO {
         ObservableList<BorrowHistory> historyList = FXCollections.observableArrayList();
         Connection conn = DBConnection.getConnection();
 
-        String sql = "SELECT bh.id AS borrow_id, bh.student_id, bh.book_id, bh.issued_date, bh.returned_date, bh.expiry_date, bh.status "
-                + "FROM borrow_history bh "
-                + "JOIN library_users u ON bh.student_id = u.id "
-                + "JOIN library_books lb ON bh.book_id = lb.id "
-                + "WHERE bh.student_id = ?";
+        String sql = """
+        SELECT bh.borrow_id AS borrowId, bh.student_id AS studentId, bh.book_id AS bookId,
+               bh.issued_date AS dateIssued, bh.returned_date AS dateReturned,
+               bh.expiry_date AS expiryDate, bh.status AS status
+        FROM borrow_history bh
+        WHERE bh.student_id = ?
+        """;
 
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, studentID);
@@ -270,12 +275,39 @@ public class DBBookDAO {
         conn.close();
         return historyList;
     }
+    
+    public ObservableList<BorrowHistory> getCurrentIssuedBooks(int studentID) throws SQLException {
+        ObservableList<BorrowHistory> currentIssuedBooks = FXCollections.observableArrayList();
+        Connection conn = DBConnection.getConnection();
+        
+        String sql = "SELECT bh.borrow_id AS borrowId, bh.status AS status, bh.book_id AS bookId, bh.issued_date AS dateIssued, bh.expiry_date AS expiryDate "
+                + "FROM borrow_history bh WHERE bh.student_id = ?";
+        
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, studentID);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            currentIssuedBooks.add(new BorrowHistory(
+                rs.getInt("borrowId"),
+                rs.getString("status"),
+                rs.getInt("bookId"),
+                rs.getTimestamp("dateIssued") != null ? rs.getTimestamp("dateIssued").toLocalDateTime() : null,
+                rs.getDate("expiryDate") != null ? rs.getDate("expiryDate").toLocalDate() : null
+                    
+            ));
+        }
+
+        conn.close();
+        return currentIssuedBooks;
+    }
+        
 
     //Load Books to New Books Table in Dashboard Admin Page
     public ObservableList<Book> getNewBooks() throws SQLException {
         Connection conn = DBConnection.getConnection();
         ObservableList<Book> books = FXCollections.observableArrayList();
-        String sql = "SELECT title, id, copies FROM library_books WHERE date_created >= CURDATE() - INTERVAL 7 DAY ORDER BY date_created DESC";
+        String sql = "SELECT lb.title AS title, lb.id AS id, lb.copies AS copies FROM library_books lb WHERE date_created >= CURDATE() - INTERVAL 5 DAY ORDER BY date_created DESC";
         ResultSet rs = conn.prepareStatement(sql).executeQuery();
         while (rs.next()) {
             books.add(new Book(rs.getString("title"), rs.getInt("id"), rs.getInt("copies")));
@@ -316,7 +348,7 @@ public class DBBookDAO {
         String sql = """
         SELECT DATE(issued_date) as day, COUNT(*) as total
         FROM borrow_history
-        WHERE issued_date >= CURDATE() - INTERVAL 6 DAY AND status = 'Borrowed'
+        WHERE issued_date >= CURDATE() - INTERVAL 5 DAY AND status = 'Borrowed'
         GROUP BY DATE(issued_date)
         ORDER BY DATE(issued_date)
     """;
@@ -335,7 +367,7 @@ public class DBBookDAO {
         String sql = """
         SELECT DATE(returned_date) AS day, COUNT(*) AS total
         FROM borrow_history
-        WHERE returned_date >= CURDATE() - INTERVAL 6 DAY AND status = 'Returned'
+        WHERE returned_date >= CURDATE() - INTERVAL 5 DAY AND status = 'Returned'
         GROUP BY day
         ORDER BY day
     """;
@@ -354,7 +386,7 @@ public class DBBookDAO {
         String sql = """
         SELECT DATE(date_created) AS day, COUNT(*) AS total
         FROM library_books
-        WHERE date_created >= CURDATE() - INTERVAL 6 DAY
+        WHERE date_created >= CURDATE() - INTERVAL 5 DAY
         GROUP BY day
         ORDER BY day
     """;
@@ -367,34 +399,33 @@ public class DBBookDAO {
         }
         return data;
     }
-    
+
     public Book findBookByID(int bookID) throws SQLException {
         String sql = "SELECT * FROM library_books WHERE id = ?";
-        try (Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, bookID);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                return new Book(
-                        rs.getBytes("bookCover"),
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getDate("publishedDate").toLocalDate(),
-                        rs.getString("genre"),
-                        rs.getString("isbn"),
-                        rs.getInt("edition"),
-                        rs.getInt("pages"),
-                        rs.getString("description"),
-                        rs.getBoolean("status"),
-                        rs.getInt("copies"),
-                        rs.getString("floor"),
-                        rs.getString("shelf")
-                );
+                    return new Book(
+                            rs.getBytes("bookCover"),
+                            rs.getInt("id"),
+                            rs.getString("title"),
+                            rs.getString("author"),
+                            rs.getDate("publishedDate").toLocalDate(),
+                            rs.getString("genre"),
+                            rs.getString("isbn"),
+                            rs.getInt("edition"),
+                            rs.getInt("pages"),
+                            rs.getString("description"),
+                            rs.getBoolean("status"),
+                            rs.getInt("copies"),
+                            rs.getString("floor"),
+                            rs.getString("shelf")
+                    );
+                }
             }
         }
-            }
         return null; // not found
     }
 }

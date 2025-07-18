@@ -17,7 +17,7 @@
         <URL value="@request.css" />
     </stylesheets>
    <children>
-      <Label alignment="BASELINE_LEFT" layoutY="-1.0" prefHeight="54.0" prefWidth="367.0" text="Borrowed and Reserved Books">
+      <Label alignment="BASELINE_LEFT" layoutY="-1.0" prefHeight="54.0" prefWidth="367.0" text="Borrowed Books">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -46,7 +46,7 @@
                         </Hyperlink>
                      </children>
                   </HBox>
-                  <TableView fx:id="currentBooksIssued" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" prefWidth="690.0" styleClass="modern-table">
+                  <TableView fx:id="currentBooksIssued" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="495.0" prefWidth="709.0" styleClass="modern-table">
                     <columns>
                       <TableColumn fx:id="borrowIDColumn" prefWidth="126.0" text="Borrow ID" />
                       <TableColumn fx:id="statusColumn" prefWidth="162.0" text="Status" />
@@ -59,31 +59,7 @@
             </VBox>
             <VBox prefHeight="492.0" prefWidth="757.0">
                <children>
-                  <HBox prefHeight="23.0" prefWidth="526.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="559.0" text="Currently reserved books">
-                           <HBox.margin>
-                              <Insets right="24.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <Hyperlink fx:id="borrowBook" alignment="BOTTOM_RIGHT" onAction="#handleBorrowBookClick" onMouseClicked="#handleBorrowBookClick" prefHeight="23.0" prefWidth="547.0" text="Reserve a book now.">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Hyperlink>
-                     </children>
-                  </HBox>
-                  <TableView fx:id="currentBooksReserved" prefHeight="300.0" prefWidth="757.0" styleClass="modern-table">
-                     <columns>
-                        <TableColumn fx:id="borrowIDColumn" prefWidth="182.0" text="Borrow ID" />
-                        <TableColumn fx:id="bookIDColumn" prefWidth="168.0" text="Book ID" />
-                        <TableColumn fx:id="dateReservedColumn" prefWidth="190.0" text="Date Reserved" />
-                        <TableColumn fx:id="statusColumn" prefWidth="168.0" text="Status" />
-                     </columns>
-                  </TableView>
+                  <HBox prefHeight="23.0" prefWidth="526.0" />
                </children>
             </VBox>
          </children>

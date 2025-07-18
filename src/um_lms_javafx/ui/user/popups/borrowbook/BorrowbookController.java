@@ -2,6 +2,7 @@ package um_lms_javafx.ui.user.popups.borrowbook;
 
 import java.io.ByteArrayInputStream;
 import java.net.URL;
+import java.time.LocalDate;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -150,7 +151,8 @@ public class BorrowbookController implements Initializable {
         libraryBookIDField.setText(String.valueOf(book.getId()));
         titleField.setText(book.getTitle());
         authorField.setText(book.getAuthor());
-        publishedDateField.setText(String.valueOf(book.getPublishedDate()));
+        LocalDate publishedDate = book.getPublishedDate();
+        publishedDateField.setText(publishedDate.toString());   
         isbnField.setText(book.getIsbn());
         genreField.setText(book.getGenre());
         editionField.setText(String.valueOf(book.getEdition()));
