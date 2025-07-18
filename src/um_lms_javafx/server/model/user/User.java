@@ -4,6 +4,9 @@
  */
 package um_lms_javafx.server.model.user;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Ravin
@@ -16,6 +19,7 @@ public abstract class User {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String fullName;
     
     private byte[] profilePicture;
     
@@ -24,8 +28,15 @@ public abstract class User {
     
     private String password;
     protected boolean adminAccess;
+    private LocalDateTime dateJoined;
     
     public User(){}
+    
+    public User(String fullName, String email, LocalDateTime dateJoined) {
+        this.fullName = fullName;
+        this.email = email;
+        this.dateJoined = dateJoined;
+    }
     
     public User(String firstName, String middleName, String lastName) {
         this.firstName = firstName;
@@ -59,5 +70,11 @@ public abstract class User {
     public String getPhoneNumber() { return phoneNumber; }
     public byte[] getProfilePicture() { return profilePicture; } 
     public boolean getAdminAccess() { return adminAccess; }
+    
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+    
+    public LocalDateTime getDateJoined() { return dateJoined; }
+    public void setDateJoined(LocalDateTime dateJoined) { this.dateJoined = dateJoined; }
     
 }
