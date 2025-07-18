@@ -24,6 +24,7 @@ import um_lms_javafx.server.DAO.DBBookDAO;
 import um_lms_javafx.server.DAO.DBUserDAO;
 import um_lms_javafx.server.model.book.Book;
 import um_lms_javafx.server.model.user.Student;
+import um_lms_javafx.server.model.user.StudentSession;
 
 /**
  * FXML Controller class
@@ -33,6 +34,7 @@ import um_lms_javafx.server.model.user.Student;
 public class DashboardController implements Initializable {
     
     @FXML Label issuedBooksLabel, totalBooksLabel, totalStudentsLabel, booksReturnedLabel;
+    @FXML Label welcomeText;
     @FXML private TableView<Student> newUsersTable;
     @FXML private TableColumn<Student, String> nameColumn;
     @FXML private TableColumn<Student, Integer> idColumn;
@@ -49,9 +51,12 @@ public class DashboardController implements Initializable {
     DBBookDAO bookDao = new DBBookDAO();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
+        welcomeText.setText("Hi, " + StudentSession.getFullName() +"!");
         try {
             dashboardAnalyticsLabels();
+            xAxis.setLabel("Date");
+            yAxis.setLabel("Count");
             lineChart();
             loadNewUsers();
             loadNewBooks();
@@ -96,11 +101,11 @@ public class DashboardController implements Initializable {
         
     }
     private void loadNewUsers() throws SQLException {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("studentID"));
         booksIssuedColumn.setCellValueFactory(new PropertyValueFactory<>("booksIssued"));
 
-        newUsersTable.setItems(studentDao.getNewUsers());
+        newUsersTable.setItems(DBUserDAO.getNewUsers());
     }
     
     private void loadNewBooks() throws SQLException {

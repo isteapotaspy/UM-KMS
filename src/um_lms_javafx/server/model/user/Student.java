@@ -21,7 +21,12 @@ final public class Student extends User {
         this.studentID = studentID;
         this.booksIssued = booksIssued;
     }
-    
+    public Student (String fullName, int studentID, int booksIssued) {
+        super(fullName);
+        this.studentID = studentID;
+        this.booksIssued = booksIssued;
+        
+    }
     public Student(int studentID, String fullName, String email, LocalDateTime dateJoined, int booksIssued) {
         super(fullName, email, dateJoined);
         this.studentID = studentID;

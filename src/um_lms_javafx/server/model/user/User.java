@@ -32,6 +32,9 @@ public abstract class User {
     
     public User(){}
     
+    public User(String fullName) {
+        this.fullName = fullName;
+    }
     public User(String fullName, String email, LocalDateTime dateJoined) {
         this.fullName = fullName;
         this.email = email;

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import um_lms_javafx.server.model.user.StudentSession;
 
 /**
  * FXML Controller class
@@ -19,11 +20,14 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label announcementText;
+    @FXML Label welcomeDashboard;
             
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         announcementText.setText("[1] Break rooms in the library is currently not  available due to maintenance.\n[2] Further, borrowing is temporarily on hold due to update in our library management system.");
         announcementText.setWrapText(true);
+        
+        welcomeDashboard.setText("Hi, " + StudentSession.getFullName() +"!");
     }    
     
 }

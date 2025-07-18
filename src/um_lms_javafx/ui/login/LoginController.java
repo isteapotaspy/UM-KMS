@@ -7,6 +7,7 @@ import um_lms_javafx.ui.LoginLayoutController;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import um_lms_javafx.server.DAO.AuthenticationState;
 import um_lms_javafx.server.DAO.DBStudentDAO;
+import um_lms_javafx.server.model.user.StudentSession;
 
 public class LoginController implements Initializable {
     
@@ -39,13 +41,15 @@ public class LoginController implements Initializable {
     AuthenticationState authState;
     String email, password;
     
+    StudentSession session = new StudentSession();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
     @FXML
-    public void loginButtonActionPerformed(ActionEvent e) throws IOException {       
+    public void loginButtonActionPerformed(ActionEvent e) throws IOException, SQLException {       
         email = emailTextField.getText();
         password = passwordTextField.getText();
         
@@ -65,6 +69,11 @@ public class LoginController implements Initializable {
                     break;
                 }
                 case(AuthenticationState.STUDENT_ACCESS_GRANTED) -> {
+                    int studentId = authenticator.getStudentIdByEmail(email); 
+                    String fullName = authenticator.getFullNameByEmail(email); 
+
+                    StudentSession.setStudent(studentId, fullName);
+
                     Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/student/StudentLayout.fxml"));
                     Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
@@ -73,6 +82,10 @@ public class LoginController implements Initializable {
                     break;
                 }
                 case(AuthenticationState.ADMIN_ACCESS_GRANTED) -> {
+                    int id = authenticator.getStudentIdByEmail(email); 
+                    String fullName = authenticator.getFullNameByEmail(email); 
+
+                    StudentSession.setStudent(id, fullName);
                     Parent root = FXMLLoader.load(getClass().getResource("/um_lms_javafx/ui/user/admin/AdminLayout.fxml"));
                     Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);

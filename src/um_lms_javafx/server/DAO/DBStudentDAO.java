@@ -196,4 +196,30 @@ public class DBStudentDAO {
         return results;
     }
 
+    //FOR STORING STUDENT ID
+    public int getStudentIdByEmail(String email) throws SQLException {
+        Connection conn = DBConnection.getConnection();
+        String sql = "SELECT user_id FROM library_users WHERE email = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            return rs.getInt("user_id");
+        }
+        return 0;
+    }
+    
+    //FOR SOTRING FULL NAME 
+    public String getFullNameByEmail(String email) throws SQLException {
+        Connection conn = DBConnection.getConnection();
+        String sql = "SELECT CONCAT(first_name, ' ', middle_name, ' ', last_name) AS full_name FROM library_users WHERE email = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            return rs.getString("full_name");
+        }
+        return null;
+    }
+
 }

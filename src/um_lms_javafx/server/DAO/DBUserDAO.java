@@ -20,15 +20,13 @@ public class DBUserDAO {
 
     public static ObservableList<Student> getNewUsers() throws SQLException {
         ObservableList<Student> list = FXCollections.observableArrayList();
-        String sql = "SELECT first_name, middle_name, last_name, user_id, books_issued FROM library_users "
+        String sql = "SELECT CONCAT(first_name, ' ', middle_name, ' ', last_name) AS full_name, user_id AS studentID, books_issued AS booksIssued FROM library_users "
                 + "WHERE date_created >= CURDATE() - INTERVAL 7 DAY AND admin_access = 0";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 list.add(new Student(
-                        rs.getString("firstName"),
-                        rs.getString("middleName"),
-                        rs.getString("lastName"),
+                        rs.getString("full_name"),
                         rs.getInt("studentID"),
                         rs.getInt("booksIssued")
                 ));

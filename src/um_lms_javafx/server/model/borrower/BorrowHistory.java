@@ -22,6 +22,14 @@ public class BorrowHistory {
     
     public BorrowHistory(){}
     
+    public BorrowHistory(int borrowId, String status, int bookId, LocalDateTime dateIssued, LocalDate expiryDate) {
+        this.borrowId = borrowId;
+        this.status = status;
+        this.bookId = bookId;
+        this.dateIssued = dateIssued;
+        this.expiryDate = expiryDate;
+    }
+    
     public BorrowHistory(int borrowId, String status, int studentId, int bookId,
                          LocalDateTime dateIssued, LocalDate expiryDate, LocalDateTime dateReturned) {
         this.borrowId = borrowId;
