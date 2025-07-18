@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author jeanv
  */
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/sigmawolf_library_v1?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    private static final String URL = "jdbc:mysql://localhost:3306/lms?zeroDateTimeBehavior=CONVERT_TO_NULL";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 

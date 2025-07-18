@@ -7,7 +7,6 @@ package um_lms_javafx.ui.user.shared_panes.search;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -91,6 +90,7 @@ public class SearchController implements Initializable {
 
     public void handleTableViewClick(MouseEvent event) {
         if (event.getClickCount() == 2 && !booksTableView.getSelectionModel().isEmpty()) {
+            System.out.println("Double click detected!");
             Book selectedBook = booksTableView.getSelectionModel().getSelectedItem();
             if (selectedBook != null) {
                 try {
@@ -110,9 +110,7 @@ public class SearchController implements Initializable {
                 }
             }
         }
-    }
-
-    ;
+    };
     
     public void refreshTable() {
         booksTableView.setItems(DBBookDAO.loadBooks());

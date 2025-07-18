@@ -9,10 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import um_lms_javafx.server.model.book.Book;
 import um_lms_javafx.server.model.user.Student;
 
 /**
@@ -20,30 +24,29 @@ import um_lms_javafx.server.model.user.Student;
  * @author Ravin
  */
 public class DBStudentDAO {
-    
+
     // CREATE STUDENT    
     public boolean insertStudent(Student student) {
         String sql = "INSERT INTO `library_users`("
-                    + "`first_name`, `middle_name`, `last_name`, `email`, `phone_number`, "
-                    + "`profile_picture`, `admin_access`, `password`, `department_ID`, "
-                    + "`user_id`, `books_issued`, `current_books_issued`, `date_created`) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-       
-        try (Connection conn = DBConnection.getConnection(); 
-             PreparedStatement statement = conn.prepareStatement(sql)) {
+                + "`first_name`, `middle_name`, `last_name`, `email`, `phone_number`, "
+                + "`profile_picture`, `admin_access`, `password`, `department_ID`, "
+                + "`user_id`, `books_issued`, `current_books_issued`, `date_created`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement statement = conn.prepareStatement(sql)) {
 
             statement.setString(1, student.getFirstName());
             statement.setString(2, student.getMiddleName());
             statement.setString(3, student.getLastName());
             statement.setString(4, student.getEmail());
             statement.setString(5, student.getPhoneNumber());
-            statement.setString(6, null); 
+            statement.setString(6, null);
             statement.setBoolean(7, false);
             statement.setString(8, student.getPassword());
-            statement.setInt(9, 0); 
-            statement.setInt(10, student.getStudentID()); 
+            statement.setInt(9, 0);
+            statement.setInt(10, student.getStudentID());
             statement.setInt(11, 0);
-            statement.setInt(12, 0); 
+            statement.setInt(12, 0);
             statement.setTimestamp(13, Timestamp.from(Instant.now()));
             int rowsInserted = statement.executeUpdate();
             return rowsInserted > 0;
@@ -54,13 +57,39 @@ public class DBStudentDAO {
             return false;
         }
     }
-    
+
+    //FOR STSUDENTS MANAGER IN ADMIN
+    public ObservableList<Student> loadStudents() {
+        ObservableList<Student> studentList = FXCollections.observableArrayList();
+
+        String sql = "SELECT user_id,"
+                + "       CONCAT_WS(' ', first_name, middle_name, last_name) AS full_name,"
+                + "       email,"
+                + "       date_created,"
+                + "       books_issued FROM library_users";
+        try (Connection conn = DBConnection.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Student student = new Student(
+                        rs.getInt("user_id"),
+                        rs.getString("full_name"),
+                        rs.getString("email"),
+                        rs.getTimestamp("date_created").toLocalDateTime(),
+                        rs.getInt("books_issued")
+                );
+                studentList.add(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQL Error: " + e.getMessage());
+        }
+        return studentList;
+    }
+
     // FIND STUDENT BY EMAIL
     public Student findStudentByEmail(String email) {
         String sql = "SELECT * FROM `library_users` WHERE email = ?";
-        try (Connection conn = DBConnection.getConnection(); 
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-        
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
 
@@ -104,8 +133,7 @@ public class DBStudentDAO {
     // FIND STUDENT BY ID
     public Student findStudentByID(int studentID) {
         String sql = "SELECT * FROM `library_users` WHERE `user_id` = ?";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, studentID);
             ResultSet rs = stmt.executeQuery();
@@ -135,11 +163,10 @@ public class DBStudentDAO {
     // FIND STUDENTS BY NAME (first, middle, or last) USING LIKE
     public List<Student> findStudentsByName(String nameQuery) {
         String sql = "SELECT * FROM `library_users` WHERE "
-                   + "`first_name` LIKE ? OR `middle_name` LIKE ? OR `last_name` LIKE ?";
+                + "`first_name` LIKE ? OR `middle_name` LIKE ? OR `last_name` LIKE ?";
         List<Student> results = new ArrayList<>();
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             String likeQuery = "%" + nameQuery + "%";
             stmt.setString(1, likeQuery);
@@ -168,4 +195,5 @@ public class DBStudentDAO {
         }
         return results;
     }
+
 }
