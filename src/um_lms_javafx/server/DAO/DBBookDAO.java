@@ -367,4 +367,34 @@ public class DBBookDAO {
         }
         return data;
     }
+    
+    public Book findBookByID(int bookID) throws SQLException {
+        String sql = "SELECT * FROM library_books WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, bookID);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                return new Book(
+                        rs.getBytes("bookCover"),
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("author"),
+                        rs.getDate("publishedDate").toLocalDate(),
+                        rs.getString("genre"),
+                        rs.getString("isbn"),
+                        rs.getInt("edition"),
+                        rs.getInt("pages"),
+                        rs.getString("description"),
+                        rs.getBoolean("status"),
+                        rs.getInt("copies"),
+                        rs.getString("floor"),
+                        rs.getString("shelf")
+                );
+            }
+        }
+            }
+        return null; // not found
+    }
 }

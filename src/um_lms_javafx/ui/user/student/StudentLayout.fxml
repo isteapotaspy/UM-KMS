@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.StudentLayoutController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um_lms_javafx.ui.user.student.StudentLayoutController">
     <stylesheets>
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/sidebar.css" />
         <URL value="@/um_lms_javafx/ui/utils/GlobalCSS/layout.css" />
@@ -20,9 +20,9 @@
    <children>
       <Pane fx:id="sidebar" prefHeight="627.0" prefWidth="250.0">
          <children>
-            <ImageView fitHeight="74.0" fitWidth="178.0" layoutX="36.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="142.0" fitWidth="257.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../assets/um_logo.png" />
+                  <Image url="@../../../assets/sigmawolf_logo.png" />
                </image>
             </ImageView>
             <VBox layoutY="159.0" prefHeight="206.0" prefWidth="250.0" spacing="12.0">
@@ -119,66 +119,31 @@
                         <Insets left="24.0" right="24.0" />
                      </padding>
                   </HBox>
-                  
-
-                  <HBox fx:id="messagesPane" layoutX="34.0" layoutY="118.0" onMouseClicked="#handleMessagesButtonClick" prefHeight="36.0" styleClass="sidebarButtons">
-                     <children>
-                        <ImageView fx:id="messagesImage" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/student/icons/sidebar/messages.png" />
-                           </image></ImageView>
-                        <Label prefHeight="36.0" prefWidth="128.0" text="Messages" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="12.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="24.0" right="24.0" />
-                     </padding>
-                  </HBox>
                </children>
             </VBox>
             
             <VBox layoutX="-2.0" layoutY="458.0" prefHeight="142.0" prefWidth="250.0">
                <children>
                   <HBox fx:id="profileButton" onMouseClicked="#handleProfileButtonClicked" prefHeight="36.0" prefWidth="250.0" styleClass="sidebarButtons">
-                     <children>
-                        <Label prefHeight="36.0" prefWidth="181.0" styleClass="sidebarButtons" text="Profile" textFill="WHITE">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                     </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
                   <HBox fx:id="settingsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleSettingsButtonClicked" prefHeight="36.0" prefWidth="224.0" styleClass="sidebarButtons">
-                     <children>
-                        <Label prefHeight="36.0" prefWidth="180.0" styleClass="sidebarButtons" text="Settings" textFill="WHITE">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                     </children>
                      <padding>
                         <Insets left="72.0" />
                      </padding>
                   </HBox>
                   <HBox fx:id="logoutButton" layoutX="10.0" layoutY="46.0" onMouseClicked="#handleLogoutButtonClicked" prefHeight="36.0" prefWidth="245.0" styleClass="sidebarButtons">
                      <children>
-                        <Label prefHeight="36.0" prefWidth="180.0" styleClass="sidebarButtons" text="Logout" textFill="WHITE">
+                        <Label prefHeight="36.0" prefWidth="264.0" styleClass="sidebarButtons" text="Logout" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
-                           </font></Label>
+                           </font>
+                           <padding>
+                              <Insets left="72.0" />
+                           </padding></Label>
                      </children>
-                     <padding>
-                        <Insets left="72.0" />
-                     </padding>
                   </HBox>
                </children>
             </VBox>

@@ -6,3 +6,10 @@
 
 }
 
+.fixedTextState {
+    -fx-text-fill: antiquewhite;
+}
+
+.errorTextState {
+    -fx-text-fill: red;    
+}

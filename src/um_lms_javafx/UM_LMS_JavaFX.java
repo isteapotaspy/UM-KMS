@@ -30,6 +30,7 @@ public class UM_LMS_JavaFX extends Application {
         
         stage.getIcons().add(new Image(getClass().getResource("/um_lms_javafx/assets/sigmawolf_window.png").toString()));
         stage.setTitle("SigmaWolf Library Management System");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

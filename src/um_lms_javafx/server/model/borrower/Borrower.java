@@ -33,6 +33,7 @@ public class Borrower {
     public void setBorrowerStatus(boolean status) { this.returnStatus = status; }
     
     public boolean getBorrowerStatus() { return returnStatus; }
+    public Book getBook() { return book; }
     public int getBorrowerID() { return borrowerID; }
     public int getStudentID() { return student.getStudentID(); }
     public String getStudentName() { return student.getFirstName() + " " + student.getMiddleName() + " " + student.getLastName(); }

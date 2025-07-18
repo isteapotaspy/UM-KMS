@@ -42,4 +42,6 @@ final public class Student extends User {
         return String.format("%s %s %s", getFirstName(), getMiddleName(), getLastName()).trim().replaceAll(" +", " ");
     }
     
+    
+    
 }

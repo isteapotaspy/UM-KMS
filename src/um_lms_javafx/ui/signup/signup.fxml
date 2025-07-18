@@ -6,8 +6,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -44,12 +48,12 @@
             </Label>
             <VBox layoutX="34.0" layoutY="69.0" prefHeight="46.0" prefWidth="292.0">
                <children>
-                  <Label text="Student ID Number" textFill="WHITE">
+                  <Label fx:id="idText" text="Student ID Number" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="studentIDField" prefHeight="25.0" prefWidth="286.0" />
+                  <TextField fx:id="studentIDField" onAction="#handleSignup" prefHeight="25.0" prefWidth="286.0" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -59,74 +63,110 @@
                <children>
                   <VBox prefHeight="46.0" prefWidth="292.0">
                      <children>
-                        <Label text="First Name                Middle" textFill="WHITE">
+                        <Label fx:id="firstNameText" text="First Name               " textFill="WHITE">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="firstNameField" prefHeight="25.0" prefWidth="188.0" />
+                        <TextField fx:id="firstNameField" onAction="#handleSignup" prefHeight="25.0" prefWidth="188.0" />
                      </children>
                   </VBox>
                   <VBox layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="178.0">
                      <children>
-                        <Label prefHeight="15.0" prefWidth="155.0" text="Initial" textFill="WHITE">
+                        <Label fx:id="middleInitialText" prefHeight="15.0" prefWidth="155.0" text="M.I." textFill="WHITE">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="middleNameField" prefHeight="25.0" prefWidth="286.0" />
+                        <TextField fx:id="middleNameField" onAction="#handleSignup" prefHeight="25.0" prefWidth="286.0" />
                      </children>
                   </VBox>
                   <VBox layoutX="186.0" layoutY="10.0" prefHeight="40.0" prefWidth="224.0">
                      <children>
-                        <Label text="Last Name" textFill="WHITE">
+                        <Label fx:id="lastNameText" text="Last Name" textFill="WHITE">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="lastNameField" prefHeight="25.0" prefWidth="101.0" />
+                        <TextField fx:id="lastNameField" onAction="#handleSignup" prefHeight="25.0" prefWidth="101.0" />
                      </children>
                   </VBox>
                </children>
             </HBox>
             <VBox prefHeight="46.0" prefWidth="292.0">
                <children>
-                  <Label text="Email" textFill="WHITE">
+                  <Label fx:id="emailText" text="Email" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailField" prefHeight="25.0" prefWidth="286.0" />
+                  <TextField fx:id="emailField" onAction="#handleSignup" prefHeight="25.0" prefWidth="286.0" />
                </children>
             </VBox>
             <VBox layoutX="34.0" layoutY="189.0" prefHeight="46.0" prefWidth="292.0">
                <children>
-                  <Label text="Phone number" textFill="WHITE">
+                  <Label fx:id="phoneNumberText" text="Phone number" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="phoneNumberField" prefHeight="25.0" prefWidth="286.0" />
+                  <TextField fx:id="phoneNumberField" onAction="#handleSignup" prefHeight="25.0" prefWidth="286.0" />
                </children>
             </VBox>
             <VBox prefHeight="46.0" prefWidth="292.0">
                <children>
-                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="307.0" text="Password" textFill="WHITE">
+                  <Label fx:id="passwordText" contentDisplay="CENTER" prefHeight="17.0" prefWidth="307.0" text="Password" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="passwordField" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="25.0" prefWidth="341.0">
+                           <children>
+                              <PasswordField fx:id="passwordField" onAction="#handleSignup" prefHeight="25.0" prefWidth="273.0" />
+                              <TextField fx:id="passwordVisibleField" />
+                           </children>
+                        </StackPane>
+                        <ToggleButton fx:id="peekPassword" mnemonicParsing="false" onAction="#handlePeekPassword">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/buttons/password_peek.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <VBox layoutX="34.0" layoutY="123.0" prefHeight="46.0" prefWidth="292.0">
                <children>
-                  <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="307.0" text="Confirm password" textFill="WHITE">
+                  <Label fx:id="confirmPasswordText" contentDisplay="CENTER" prefHeight="17.0" prefWidth="307.0" text="Confirm password" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="confirmPasswordField" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="25.0" prefWidth="293.0">
+                           <children>
+                              <PasswordField fx:id="confirmPasswordField" onAction="#handleSignup" prefHeight="25.0" prefWidth="260.0" />
+                              <TextField fx:id="confirmPasswordVisibleField" />
+                           </children>
+                        </StackPane>
+                        <ToggleButton fx:id="peekConfirmPassword" mnemonicParsing="false" onAction="#handlePeekConfirmPassword">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/buttons/password_peek.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <Button fx:id="signupButton" mnemonicParsing="false" onAction="#handleSignup" prefHeight="25.0" prefWidth="397.0" text="Signup">
@@ -135,7 +175,7 @@
                </VBox.margin></Button>
          </children>
          <padding>
-            <Insets left="24.0" right="24.0" top="24.0" />
+            <Insets left="48.0" right="48.0" top="24.0" />
          </padding>
       </VBox>
    </children>
