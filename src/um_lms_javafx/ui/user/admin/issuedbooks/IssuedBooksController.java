@@ -70,8 +70,8 @@ public class IssuedBooksController implements Initializable {
       //  addBorrower(5, quandale, quanMillzBook, LocalDateTime.of(2021, 9, 14, 0, 0));
     }    
     
-    public void addBorrower(int borrowerID, Student student, Book book, LocalDateTime dateIssued) {
-        borrowerList.add(new Borrower(borrowerID, student, book, dateIssued));
+    public void addBorrower(Student student, Book book) {
+        borrowerList.add(new Borrower(student, book, "Borrowed"));
     }
     
 }

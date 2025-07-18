@@ -17,17 +17,13 @@ import um_lms_javafx.server.model.book.Book;
 import um_lms_javafx.server.model.user.Student;
 import um_lms_javafx.server.model.borrower.Borrower;
 
-/**
- *
- * @author Ravin
- */
 public class DBBorrowerDAO {
     DBBookDAO bookDAO = new DBBookDAO();
     DBStudentDAO studentDAO = new DBStudentDAO();
 
     // INSERT BORROWER
     public boolean insertBorrower(Borrower borrower) {
-        String sql = "INSERT INTO `borrowers`(`student_id`, `book_id`, `date_issued`, `return_status`) "
+        String sql = "INSERT INTO `borrow_history`(`student_id`, `book_id`, `issued_date`, `status`) "
                    + "VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DBConnection.getConnection();
@@ -36,7 +32,7 @@ public class DBBorrowerDAO {
             stmt.setInt(1, borrower.getStudentID());
             stmt.setInt(2, borrower.getBook().getId());
             stmt.setTimestamp(3, Timestamp.valueOf(borrower.getDateIssued()));
-            stmt.setBoolean(4, borrower.getBorrowerStatus());
+            stmt.setString(4, borrower.getBorrowerStatus());
 
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;
@@ -48,14 +44,14 @@ public class DBBorrowerDAO {
         }
     }
 
-    // FIND BORROWER BY ID
-    public Borrower findBorrowerByID(int borrowerID) {
-        String sql = "SELECT * FROM `borrowers` WHERE `borrower_id` = ?";
+    // FIND BY ID
+    public Borrower findBorrowerByID(int borrowID) {
+        String sql = "SELECT * FROM `borrow_history` WHERE `borrow_id` = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, borrowerID);
+            stmt.setInt(1, borrowID);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -69,9 +65,9 @@ public class DBBorrowerDAO {
         return null;
     }
 
-    // FIND BORROWERS BY BOOK TITLE
+    // FIND BY BOOK TITLE
     public List<Borrower> findBorrowersByBookTitle(String title) {
-        String sql = "SELECT b.* FROM `borrowers` b "
+        String sql = "SELECT b.* FROM `borrow_history` b "
                    + "JOIN `books` k ON b.book_id = k.book_id "
                    + "WHERE k.title LIKE ?";
 
@@ -94,9 +90,9 @@ public class DBBorrowerDAO {
         return borrowers;
     }
 
-    // GET ALL BORROWERS
+    // GET ALL
     public List<Borrower> getAllBorrowers() {
-        String sql = "SELECT * FROM `borrowers`";
+        String sql = "SELECT * FROM `borrow_history`";
         List<Borrower> borrowers = new ArrayList<>();
 
         try (Connection conn = DBConnection.getConnection();
@@ -114,15 +110,15 @@ public class DBBorrowerDAO {
         return borrowers;
     }
 
-    // UPDATE RETURN STATUS
-    public boolean updateReturnStatus(int borrowerID, boolean status) {
-        String sql = "UPDATE `borrowers` SET `return_status` = ? WHERE `borrower_id` = ?";
+    // UPDATE STATUS
+    public boolean updateReturnStatus(int borrowID, String status) {
+        String sql = "UPDATE `borrow_history` SET `status` = ? WHERE `borrow_id` = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setBoolean(1, status);
-            stmt.setInt(2, borrowerID);
+            stmt.setString(1, status);
+            stmt.setInt(2, borrowID);
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0;
 
@@ -133,14 +129,14 @@ public class DBBorrowerDAO {
         }
     }
 
-    // DELETE BORROWER
-    public boolean deleteBorrower(int borrowerID) {
-        String sql = "DELETE FROM `borrowers` WHERE `borrower_id` = ?";
+    // DELETE
+    public boolean deleteBorrower(int borrowID) {
+        String sql = "DELETE FROM `borrow_history` WHERE `borrow_id` = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, borrowerID);
+            stmt.setInt(1, borrowID);
             int rowsDeleted = stmt.executeUpdate();
             return rowsDeleted > 0;
 
@@ -151,22 +147,53 @@ public class DBBorrowerDAO {
         }
     }
 
-    // GRAB THE BORROWER WITH PRIMARY keys STUDENT & BOOK
+    // MAP RESULTSET
     private Borrower mapResultSetToBorrower(ResultSet rs) throws SQLException {
-        int borrowerID = rs.getInt("borrower id");
-        int studentID = rs.getInt("student id");
-        int bookID = rs.getInt("book id");
-        boolean returnStatus = rs.getBoolean("return status");
-        
-        LocalDateTime dateIssued = rs.getTimestamp("date_issued").toLocalDateTime();
-        
+        int borrowID = rs.getInt("borrow_id");
+        int studentID = rs.getInt("student_id");
+        int bookID = rs.getInt("book_id");
+        String status = rs.getString("status");
+        LocalDateTime issuedDate = rs.getTimestamp("issued_date").toLocalDateTime();
+
         Student student = studentDAO.findStudentByID(studentID);
         Book book = bookDAO.findBookByID(bookID);
-        
-        if (student == null || book == null) {return null;}
-            
-        Borrower borrower = new Borrower(borrowerID, student, book, dateIssued);
-        borrower.setBorrowerStatus(returnStatus);
+
+        if (student == null || book == null) return null;
+
+        Borrower borrower = new Borrower(student, book, status);
         return borrower;
+    }
+
+    // ROW INDEX
+    public int getRowIndexByBorrowerId(int borrowId) {
+        String sql = "SELECT borrow_id FROM borrow_history ORDER BY borrow_id";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            int index = 1;
+            while (rs.next()) {
+                if (rs.getInt("borrow_id") == borrowId) return index;
+                index++;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error retrieving row index: " + e.getMessage());
+        }
+        return -1;
+    }
+
+    // TOTAL ROWS
+    public int getTotalBorrowerHistoryRows() {
+        String sql = "SELECT COUNT(*) AS total FROM borrow_history";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) return rs.getInt("total");
+        } catch (SQLException e) {
+            System.out.println("Error getting total rows: " + e.getMessage());
+        }
+        return 0;
     }
 }
